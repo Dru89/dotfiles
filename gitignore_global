@@ -1,0 +1,7 @@
+build
+eclipse-bin
+test-output
+.classpath
+.project
+.settings
+*.iml

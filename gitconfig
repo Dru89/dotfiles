@@ -1,0 +1,30 @@
+[user]
+     name = Drew Hays
+     email = drewshays@gmail.com
+[push]
+     default = simple
+[alias]
+     lol = log --graph --decorate --pretty=oneline --abbrev-commit
+     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all --date=local
+     ls = ls-files
+     unstage = reset HEAD
+     dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)\"%an\" <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(auto)%d%C(reset)%n%s' --date-order
+     update = add -u
+     cdiff = log --left-right --graph --cherry-pick --oneline
+[color]
+     branch = auto
+     diff = auto
+     interactive = auto
+     status = auto
+     ui = auto
+[core]
+     pager = less -RMSI
+     excludesfile = ~/.gitignore_global
+[diff]
+     algorithm = patience
+[merge]
+     tool = vimdiff
+[mergetool]
+     prompt = false
+[url "https://github.com/"]
+     insteadOf = "gh:"

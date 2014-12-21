@@ -11,13 +11,15 @@ task :install do
   files << "oh-my-zsh/custom/rbates.zsh-theme"
   files.each do |file|
     system %Q{mkdir -p "$HOME/.#{File.dirname(file)}"} if file =~ /\//
-    if File.exist?(File.join(ENV['HOME'], ".#{file.sub(/\.erb$/, '')}"))
-      if File.identical? file, File.join(ENV['HOME'], ".#{file.sub(/\.erb$/, '')}")
-        puts "identical ~/.#{file.sub(/\.erb$/, '')}"
+    filename = ".#{file.sub(/\.erb$/, '')}"
+    abspath = File.join(ENV['HOME'], filename)
+    if File.exist? abspath or File.symlink? abspath
+      if File.identical? file, abspath
+        puts "identical ~/#{filename}"
       elsif replace_all
         replace_file(file)
       else
-        print "overwrite ~/.#{file.sub(/\.erb$/, '')}? [ynaq] "
+        print "overwrite ~/#{filename}? [ynaq] "
         case $stdin.gets.chomp
         when 'a'
           replace_all = true
@@ -27,7 +29,7 @@ task :install do
         when 'q'
           exit
         else
-          puts "skipping ~/.#{file.sub(/\.erb$/, '')}"
+          puts "skipping ~/#{filename}"
         end
       end
     else
