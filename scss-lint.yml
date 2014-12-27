@@ -1,0 +1,159 @@
+linters:
+    BangFormat:
+        enabled: yes
+        severity: error
+        space_before_bang: yes
+        space_after_bang: no
+    BorderZero:
+        enabled: yes
+        severity: error
+    ColorKeyword:
+        enabled: yes
+        severity: error
+    Comment:
+        enabled: yes
+        severity: error
+    DebugStatement:
+        enabled: yes
+        severity: error
+    DeclarationOrder:
+        enabled: yes
+        severity: error
+    DuplicateProperty:
+        enabled: yes
+        severity: error
+    ElsePlacement:
+        enabled: yes
+        severity: error
+    EmptyLineBetweenBlocks:
+        enabled: yes
+        severity: error
+        ignore_single_line_blocks: yes
+    EmptyRule:
+        enabled: yes
+        severity: error
+    FinalNewline:
+        enabled: yes
+        severity: error
+    HexLength:
+        enabled: yes
+        severity: error
+        style: long
+    HexNotation:
+        enabled: yes
+        severity: error
+        style: lowercase
+    HexValidation:
+        enabled: yes
+        severity: error
+    IdSelector:
+        enabled: yes
+        severity: error
+    ImportPath:
+        enabled: yes
+        severity: error
+    Indentation:
+        enabled: yes
+        severity: error
+        character: space
+        width: 4
+    LeadingZero: # TODO: Check into this
+        enabled: yes
+        severity: error
+        style: include_zero
+    MergeableSelector:
+        enabled: yes
+        severity: error
+        force_nesting: true
+    NameFormat:
+        enabled: yes
+        severity: error
+        convention: hyphenated_lowercase
+    NestingDepth:
+        enabled: no
+        severity: error
+        max_depth: 5
+    PlaceholderInExtend:
+        enabled: yes
+        severity: error
+    PropertySortOrder:
+        enabled: yes
+        severity: error
+        order: concentric
+    PropertySpelling:
+        enabled: yes
+        severity: error
+    QualifyingElement:
+        enabled: yes
+        severity: error
+    SelectorDepth:
+        enabled: no
+        severity: error
+        max_depth: 5
+    SelectorFormat:
+        enabled: yes
+        severity: error
+        convention: hyphenated_lowercase
+    Shorthand:
+        enabled: yes
+        severity: error
+    SingleLinePerProperty:
+        enabled: yes
+        severity: error
+        allow_single_line_rule_sets: yes
+    SingleLinePerSelector:
+        enabled: yes
+        severity: error
+    SpaceAfterComma:
+        enabled: yes
+        severity: error
+    SpaceAfterPropertyColon:
+        enabled: yes
+        severity: error
+        style: one_space
+    SpaceAfterPropertyName:
+        enabled: yes
+        severity: error
+    SpaceBeforeBrace:
+        enabled: yes
+        severity: error
+        style: one_space
+    SpaceBetweenParens:
+        enabled: yes
+        severity: error
+        spaces: 0
+    StringQuotes:
+        enabled: yes
+        severity: error
+        style: single_quotes
+    TrailingSemicolon:
+        enabled: yes
+        severity: error
+    TrailingZero:
+        enabled: yes
+        severity: error
+    UnnecessaryMantissa: # 1.0 vs 1
+        enabled: yes
+        severity: error
+    UnnecessaryParentReference:
+        enabled: yes
+        severity: error
+    UrlFormat:
+        enabled: yes
+        severity: error
+    UrlQuotes:
+        enabled: yes
+        severity: error
+    # We use vendor prefixes in _vendor.scss.
+    # scss-lint has file-level checks in HEAD, but it's too new
+    # to use it here (it's not in the current gem version)
+    # @TODO: add this back in when file-based checks are in the gem
+    # commit: https://github.com/causes/scss-lint/commit/6959dc6c6ed97a2b3bac3960d2472d008f45b7d8
+    #---
+    VendorPrefixes:
+        enabled: no #yes
+        severity: error
+        identifier_list: base
+    ZeroUnit:
+        enabled: yes
+        severity: error

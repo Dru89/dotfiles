@@ -1,3 +1,4 @@
+#!/usr/bin/env zsh
 # Most of this was taken from http://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/
 
 # Determine what character to use in place of the '$' for my prompt.

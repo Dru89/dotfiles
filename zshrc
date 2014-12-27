@@ -49,7 +49,8 @@ plugins=(git)
 
 # User configuration
 
-export PATH="$HOME/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export NODE_PATH="/usr/local/lib/node_modules"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -60,6 +61,9 @@ source ~/.keybindings
 
 # Preferred editor for local and remote sessions
 export EDITOR='emacs'
+
+# 256 color terminal
+export TERM='xterm-256color'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -77,8 +81,8 @@ export EDITOR='emacs'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # STOP IT DREW STOP IT STOP IT STOP IT STAAAAAAHP
-alias vi=emacs
-alias e=emacs
+alias vi="emacs -nw"
+alias e="emacs -nw"
 
 # Enable rbenv
 eval "$(rbenv init -)"
