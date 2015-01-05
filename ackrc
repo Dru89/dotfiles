@@ -1,0 +1,31 @@
+########
+# IGNORED FOLDERS
+--ignore-dir
+build
+
+--ignore-dir
+vendor
+
+--ignore-dir
+.sass-cache
+
+--ignore-dir
+dashjs
+
+
+########
+# IGNORED FILES
+--ignore-file
+match:benchmarkMockdata.coffee
+
+
+########
+# ADDITIONAL TYPES
+#
+# In general, these are of the form <typename>:<filter>:<filterargs>
+# See http://beyondgrep.com/documentation/ack-2.14-man.html#defining_your_own_types 
+#
+# To explicitly search for a type, you can use --<typename> 
+# To excplicity exclude a type, you can use --no<typename>
+--type-add
+underscore:ext:underscore
