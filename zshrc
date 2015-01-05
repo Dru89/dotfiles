@@ -79,6 +79,7 @@ export TERM='xterm-256color'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias sudo="sudo "
 
 # STOP IT DREW STOP IT STOP IT STOP IT STAAAAAAHP
 alias vi="emacs -nw"

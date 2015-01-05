@@ -30,7 +30,7 @@
   },
  
   "no_implicit_parens" : {
-    "level" : "error"
+    "level" : "ignore"
   },
  
   "no_trailing_semicolons" : {
