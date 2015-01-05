@@ -10,6 +10,8 @@
      unstage = reset HEAD
      dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)\"%an\" <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(auto)%d%C(reset)%n%s' --date-order
      update = add -u
+     odiff = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short
+     list-changes = log --branches  --not --remotes --simplify-by-decoration --decorate --oneline
      cdiff = log --left-right --graph --cherry-pick --oneline
 [color]
      branch = auto
@@ -23,9 +25,9 @@
      editor = emacs -nw
 [diff]
      algorithm = patience
-[merge]
-     tool = vimdiff
-[mergetool]
-     prompt = false
 [url "https://github.com/"]
      insteadOf = "gh:"
+[filter "media"]
+    clean = git media clean %f
+    smudge = git media smudge %f
+    required = true
