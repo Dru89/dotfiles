@@ -66,7 +66,7 @@ source /usr/local/Cellar/arcanist/HEAD/arcanist/resources/shell/bash-completion
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-export EDITOR='emacs -nw'
+export EDITOR='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
 
 # 256 color terminal
 export TERM='xterm-256color'

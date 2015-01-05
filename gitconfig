@@ -22,7 +22,6 @@
 [core]
      pager = less -RMSI
      excludesfile = ~/.gitignore_global
-     editor = emacs -nw
 [diff]
      algorithm = patience
 [url "https://github.com/"]
