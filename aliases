@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+alias randstr='cat /dev/urandom | env LC_CTYPE=C tr -cd 'A-Za-z0-9' | head -c'
+alias rake='noglob rake'
+alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
+alias e='emacs -nw'
+
+function cdws() {
+cd $HOME/workspace/$1
+}
+
+compctl -/ -W $HOME/workspace cdws

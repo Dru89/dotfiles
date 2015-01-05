@@ -45,22 +45,28 @@ ZSH_THEME="prose"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(brew git git-extras pip tmux z)
 
 # User configuration
 
-export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.rbenv/bin:$HOME/Library/Android/sdk/platform-tools:$HOME/workspace/htv-tools:$HOME/workspace/htv-tools/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 export NODE_PATH="/usr/local/lib/node_modules"
 # export MANPATH="/usr/local/man:$MANPATH"
 
+export CUBE_WORKSPACE=~/workspace/cube
+export TEMPO_WORKSPACE=~/workspace/tempo-core
+
 source $ZSH/oh-my-zsh.sh
 source ~/.keybindings
+source ~/.aliases
+source ~/bin/z.sh
+source /usr/local/Cellar/arcanist/HEAD/arcanist/resources/shell/bash-completion
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-export EDITOR='emacs'
+export EDITOR='emacs -nw'
 
 # 256 color terminal
 export TERM='xterm-256color'
