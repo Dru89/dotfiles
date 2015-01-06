@@ -66,7 +66,8 @@ source /usr/local/Cellar/arcanist/HEAD/arcanist/resources/shell/bash-completion
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-export EDITOR='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
+alias emacsclient='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
+export EDITOR='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
 
 # 256 color terminal
 export TERM='xterm-256color'
@@ -88,8 +89,9 @@ export TERM='xterm-256color'
 alias sudo="sudo "
 
 # STOP IT DREW STOP IT STOP IT STOP IT STAAAAAAHP
-alias vi="emacs -nw"
-alias e="emacs -nw"
+alias vi="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
+alias e="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -n"
+alias et="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -t"
 
 # Enable rbenv
 eval "$(rbenv init -)"
