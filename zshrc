@@ -92,4 +92,3 @@ alias vi='nvim'
 
 # Enable rbenv
 eval "$(rbenv init -)"
-export HOMEBREW_GITHUB_API_TOKEN=4006f45c9d8bddca25862d96947db109ca600a35
