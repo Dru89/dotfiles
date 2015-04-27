@@ -65,9 +65,6 @@ unignore from: to: cc: date: subject:
 unhdr_order *
 hdr_order from: to: cc: date: subject:
 
-# Text Editor
-set editor="nvim"
-
 # Address Book Handling
 set sort_alias=alias
 set reverse_alias=yes
