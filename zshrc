@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="prose"
+ZSH_THEME="prose" 
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -49,7 +49,6 @@ plugins=(brew git git-extras pip tmux z)
 
 # User configuration
 
-export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.rbenv/bin:$HOME/Library/Android/sdk/platform-tools:$HOME/workspace/htv-tools:$HOME/workspace/htv-tools/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 export NODE_PATH="/usr/local/lib/node_modules"
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -61,12 +60,13 @@ source ~/.keybindings
 source ~/.aliases
 source ~/bin/z.sh
 source /usr/local/Cellar/arcanist/HEAD/arcanist/resources/shell/bash-completion
+source ~/.antigen.zsh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-export EDITOR='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
+export EDITOR='vim'
 
 # 256 color terminal
 export TERM='xterm-256color'
@@ -86,10 +86,10 @@ export TERM='xterm-256color'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias sudo="sudo "
-
-# STOP IT DREW STOP IT STOP IT STOP IT STAAAAAAHP
-alias vi="emacs -nw"
-alias e="emacs -nw"
+alias e='nvim'
+alias vim='nvim'
+alias vi='nvim'
 
 # Enable rbenv
 eval "$(rbenv init -)"
+export HOMEBREW_GITHUB_API_TOKEN=4006f45c9d8bddca25862d96947db109ca600a35

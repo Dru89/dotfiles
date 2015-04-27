@@ -1,0 +1,25 @@
+# HTML
+text/html; lynx -stdin -dump -force_html -width 72; copiousoutput; description=HTML text; test=type lynx > /dev/null
+text/html; pandoc -f html -t markdown; copiousoutput; description=HTML text; test=type pandoc > /dev/null
+text/html; w3m -dump -T text/html -cols 72; copiousoutput; description=HTML text; test=type w3m > /dev/null
+text/html; html2text -width 72; copiousoutput; description=HTML text; test=type html2text > /dev/null
+text/html; ~/.mutt/html2text.sh %s; copiousoutput
+
+# MS Word
+application/msword; ~/.mutt/view_attachment.sh %s "-" "/Applications/TextEdit.app"
+
+# Images
+image/png; ~/.mutt/view_attachment.sh %s png
+image/jpg; ~/.mutt/view_attachment.sh %s jpg
+image/jpeg; ~/.mutt/view_attachment.sh %s jpg
+image/pjpeg; ~/.mutt/view_attachment.sh %s jpg
+image/gif; ~/.mutt/view_attachment.sh %s gif
+
+# PDFs
+application/pdf; ~/.mutt/view_attachment.sh %s pdf
+
+# Unidentified files
+application/octet-stream; ~/.mutt/view_attachment.sh %s "-"
+
+# Calendar events!
+text/calendar; ~/workspace/mutt-office365/src/bin/mutt-ics.coffee; copiousoutput; description=Event information

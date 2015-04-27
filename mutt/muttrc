@@ -1,0 +1,146 @@
+source "~/.mutt/user"
+source "~/.mutt/lang/en_US"
+
+######################
+# IMAP Configuration
+set imap_user="$my_username@$my_domain"
+set imap_pass=$my_password
+set imap_check_subscribed=yes
+set imap_list_subscribed=yes
+set timeout=3
+set mail_check=0
+set imap_keepalive=180
+set imap_idle
+set ssl_use_sslv3=yes
+set delete
+set pipe_decode
+set thorough_search
+unset mark_old
+unset move
+unset confirmappend
+
+# set folder="imaps://outlook.office365.com"
+# set spoolfile= +INBOX
+# set postponed= +$my_drafts_noquote
+# set record= +$my_sent_noquote
+# set trash= +$my_trash_noquote
+set folder="~/.mail"
+set spoolfile= "+work/INBOX"
+set mbox= "+work/Archive"
+set postponed= "+work/Drafts"
+mailboxes
+
+#######################
+# SMTP Configuration
+set realname=$my_realname
+set from="$my_username@$my_domain"
+set sendmail="/usr/local/bin/msmtp -a work --from $from --user $from"
+set sendmail_wait=0
+set record= "+work/Sent Items"
+
+#######################
+# Miscellaneous
+
+# File storage
+set signature="~/.mutt/signature"
+set message_cachedir="~/.mutt/message_cache"
+set header_cache="~/.mutt/header_cache"
+set mailcap_path="~/.mutt/mailcap"
+set certificate_file="~/.mutt/certificates"
+set tmpdir="~/.mutt/tmp"
+
+# Text View
+set pager_stop="yes"
+set smart_wrap="yes"
+alternative_order text/calendar text/plain
+auto_view text/html
+auto_view text/calendar
+set reverse_name=yes
+set reverse_realname=yes
+set wait_key=no
+set mbox_type=Maildir
+set status_format="───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
+ignore *
+unignore from: to: cc: date: subject:
+unhdr_order *
+hdr_order from: to: cc: date: subject:
+
+# Text Editor
+set editor="nvim"
+
+# Address Book Handling
+set sort_alias=alias
+set reverse_alias=yes
+
+# Thread Ordering
+set sort='threads'
+set sort_browser='reverse-date'
+set sort_aux='reverse-last-date-received'
+unset collapse_unread
+set index_format=" %?M?   ↳&%4C?   %Z      %D     %-15.15n    %s"
+
+## Key bindings
+# Mailboxes
+macro   index    gi       "<change-folder>=work/INBOX<enter>"         "Go to Inbox"
+macro   index    gs       "<change-folder>=work/$my_sent<enter>"      "Go to Sent"
+macro   index    gd       "<change-folder>=work/$my_drafts<enter>"    "Go to Drafts"
+macro   index    gt       "<change-folder>=work/$my_trash<enter>"     "Go to Trash"
+
+# Index
+bind    index    <up>        previous-entry
+bind    index    <down>      next-entry
+bind    index    <delete>    delete-message
+bind    index    <backspace> delete-message
+bind    index    n           next-entry
+bind    index    p           previous-entry
+macro   index    Q           ":set quit=yes\nq"     "Quit mutt without asking"
+bind    index    C           noop
+bind    index    -           collapse-thread
+bind    index    _           collapse-all
+macro   index    U           "l~N<enter>"           "Filter for unread messages"
+bind    index    gg          first-entry
+bind    index    G           last-entry
+macro   index    \#          "l~F<enter>"           "Filter for flagged messages"
+
+# Pager
+bind    pager    <up>        previous-line
+bind    pager    <down>      next-line
+bind    pager    <left>      previous-entry
+bind    pager    <right>     next-entry
+bind    pager    <delete>    delete-message
+bind    pager    <backspace> delete-message
+bind    pager    k           previous-line
+bind    pager    j           next-line
+bind    pager    n           next-entry
+bind    pager    p           previous-entry
+bind    pager    w           previous-page
+bind    pager    gg          top
+bind    pager    G           bottom
+bind    pager    R           group-reply
+macro   pager    \Cu         "|urlview<enter>"       "Call urlview to open links"
+
+# Attachments
+bind    attach   <return>    view-mailcap
+
+# Colors
+color   normal      white default
+color   attachment  brightyellow default
+color   hdrdefault  cyan default
+color   indicator   black cyan
+color   markers     brightred default
+color   quoted      green default
+color   signature   cyan default
+color   status      brightgreen blue
+color   tilde       blue default
+color   tree        red default
+color   header      brightgreen default ^From:
+color   header      brightcyan default ^To:
+color   header      brightcyan default ^Reply-To:
+color   header      brightcyan default ^Cc:
+color   header      brightblue default ^Subject:
+color   body        brightred default [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
+color   body        brightblue default (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
+
+# For better looks
+# set markers=no # don't put '+' at the beginning of wrapped lines
+# set pager_index_lines= 5 # how large is the index window?

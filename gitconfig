@@ -1,32 +1,40 @@
+[include]
+    path = ~/.work_gitconfig
 [user]
-     name = Drew Hays
-     email = drew.hays@hulu.com
+    name = Drew Hays
 [push]
-     default = simple
+    default = simple
 [alias]
-     lol = log --graph --decorate --pretty=oneline --abbrev-commit
-     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all --date=local
-     ls = ls-files
-     unstage = reset HEAD
-     dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)\"%an\" <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(auto)%d%C(reset)%n%s' --date-order
-     update = add -u
-     odiff = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short
-     list-changes = log --branches  --not --remotes --simplify-by-decoration --decorate --oneline
-     cdiff = log --left-right --graph --cherry-pick --oneline
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all --date=local
+    ls = ls-files
+    unstage = reset HEAD
+    dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)\"%an\" <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(auto)%d%C(reset)%n%s' --date-order
+    update = add -u
+    odiff = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short
+    list-changes = log --branches  --not --remotes --simplify-by-decoration --decorate --oneline
+    cdiff = log --left-right --graph --cherry-pick --oneline
+	stashdiff = stash show -p
+	ws = rebase --whitespace=fix
+	diff-upstream = diff @{upstream}
 [color]
-     branch = auto
-     diff = auto
-     interactive = auto
-     status = auto
-     ui = auto
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
+    ui = auto
 [core]
-     pager = less -RMSI
-     excludesfile = ~/.gitignore_global
+    pager = less -RMSI
+    excludesfile = ~/.gitignore_global
 [diff]
-     algorithm = patience
+    algorithm = patience
 [url "https://github.com/"]
-     insteadOf = "gh:"
+    insteadOf = "gh:"
 [filter "media"]
+    required = true
     clean = git media clean %f
     smudge = git media smudge %f
-    required = true
+[difftool]
+	prompt = false
+[mergetool]
+	prompt = false

@@ -1,0 +1,4 @@
+set my_realname="Drew Hays"
+set my_username="$EMAIL_USERNAME"
+set my_domain="$DOMAIN"
+set my_lang="en_US"

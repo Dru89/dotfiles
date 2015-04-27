@@ -1,24 +1,52 @@
 require 'rake'
 require 'erb'
+require 'pathname'
 
-desc "install the dot files into user's home directory"
-task :install do
+NO_SYMLINK_DIRS = %w[oh-my-zsh]
+IGNORED_FILES   = %w[Rakefile README.md LICENSE]
+SYMLINK_ALIASES = {"nvim" => ["vim"], "nvimrc" => ["vimrc"]}
+
+desc "test to make sure that all files get copied over"
+task :setup_shell do
   install_oh_my_zsh
   switch_to_zsh
-  replace_all = false
-  files = Dir['*'] - %w[Rakefile README.rdoc LICENSE oh-my-zsh]
-  files << "oh-my-zsh/themes/prose.zsh-theme"
-  files.each do |file|
-    system %Q{mkdir -p "$HOME/.#{File.dirname(file)}"} if file =~ /\//
+end
+
+task :install => [:setup_shell] do
+  process_folder()
+end
+
+task :force => [:setup_shell] do
+  process_folder(nil, replace_identical: true, replace_all: true)
+end
+
+task :default => [:install]
+
+def process_folder(folder=nil, opts={})
+  replace_all = opts[:replace_all] || false
+  force_traverse = opts[:force_traverse] || false
+  replace_identical = opts[:replace_identical] || false
+
+  glob = '*'
+  unless folder.nil?
+    glob = File.join(folder, glob)
+  end
+
+  Dir[glob].each do |file|
+    next if IGNORED_FILES.include?(file)
     filename = ".#{file.sub(/\.erb$/, '')}"
     abspath = File.join(ENV['HOME'], filename)
-    if File.exist? abspath or File.symlink? abspath
-      if File.identical? file, abspath
+
+    if File.directory?(file) and (force_traverse or NO_SYMLINK_DIRS.include?(file))
+      system %Q{mkdir -p "$HOME/.#{file}"}
+      process_folder(file, force_traverse: true, replace_all: replace_all, replace_identical: replace_identical)
+    elsif File.exist?(abspath) or File.symlink?(abspath)
+      if File.identical?(file, abspath) and not replace_identical
         puts "identical ~/#{filename}"
       elsif replace_all
         replace_file(file)
       else
-        print "overwrite ~/#{filename}? [ynaq] "
+        print "overwrite ~/#{filename}? [yNaq] "
         case $stdin.gets.chomp
         when 'a'
           replace_all = true
@@ -37,23 +65,39 @@ task :install do
   end
 end
 
-def replace_file(file)
+def replace_file(file, source=nil)
   system %Q{rm -rf "$HOME/.#{file.sub(/\.erb$/, '')}"}
-  link_file(file)
+  link_file(file, source)
 end
 
-def link_file(file)
+def link_file(file, source=nil)
+  infile = file
+  unless source.nil?
+    infile = source
+  end
   if file =~ /.erb$/
-    puts "generating ~/.#{file.sub(/\.erb$/, '')}"
-    File.open(File.join(ENV['HOME'], ".#{file.sub(/\.erb$/, '')}"), 'w') do |new_file|
-      new_file.write ERB.new(File.read(file)).result(binding)
+    print "generating ~/.#{file.sub(/\.erb$/, '')}"
+    if source.nil?
+      puts ""
+    else
+      puts " for #{source}"
     end
-#  elsif file =~ /zshrc$/ # copy zshrc instead of link
-#    puts "copying ~/.#{file}"
-#    system %Q{cp "$PWD/#{file}" "$HOME/.#{file}"}
+    File.open(File.join(ENV['HOME'], ".#{file.sub(/\.erb$/, '')}"), 'w') do |new_file|
+      new_file.write ERB.new(File.read(infile)).result(binding)
+    end
   else
-    puts "linking ~/.#{file}"
-    system %Q{ln -s "$PWD/#{file}" "$HOME/.#{file}"}
+    print "linking ~/.#{file}"
+    if source.nil?
+      puts ""
+    else
+      puts " to #{source}"
+    end
+    system %Q{ln -s "$PWD/#{infile}" "$HOME/.#{file}"}
+  end
+  if SYMLINK_ALIASES.has_key? file
+    SYMLINK_ALIASES[file].each do |symlink_alias|
+      replace_file(symlink_alias, file)
+    end
   end
 end
 

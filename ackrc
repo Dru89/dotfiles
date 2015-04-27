@@ -4,6 +4,12 @@
 build
 
 --ignore-dir
+bin
+
+--ignore-dir
+node_modules
+
+--ignore-dir
 vendor
 
 --ignore-dir

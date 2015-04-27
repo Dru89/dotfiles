@@ -25,5 +25,5 @@ ZSH_THEME_GIT_PROMPT_DIVERGED_REMOTE="%{$fg[red]%}↕%{$reset_color%}"
 
 # I like a new line between my result and the next prompt. Makes it easier to see
 PROMPT='
-%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info)$(git_remote_status)
+%{$fg[red]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info)$(git_remote_status)
 $(virtualenv_info)$(repo_char) '
