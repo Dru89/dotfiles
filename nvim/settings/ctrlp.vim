@@ -27,12 +27,5 @@ nnoremap <silent> <leader>b :CtrlPBuffer<CR>
 " Clear CtrlP cache with Cmd-Shift-P
 nnoremap <silent> <D-P> :ClearCtrlPCache<CR>
 
-" Some quick 'jumps' to search for.
-" See http://www.charlietanksley.net/blog/blog/2011/10/18/vim-navigation-with-lustyexplorer-and-lustyjuggler/
-map <leader>jc :CtrlP core/src<CR>
-map <leader>jw :CtrlP core/src/hcube/workflows<CR>
-map <leader>jt :CtrlP core/mocha-tests<CR>
-" TODO: think of more?
-
 " Cmd-Shift-(M)ethod - jump to tag in file
 nnoremap <silent> <D-M> :CtrlPBufTag<CR>

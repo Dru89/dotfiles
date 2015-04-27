@@ -52,9 +52,6 @@ plugins=(brew git git-extras pip tmux z)
 export NODE_PATH="/usr/local/lib/node_modules"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-export CUBE_WORKSPACE=~/workspace/cube
-export TEMPO_WORKSPACE=~/workspace/tempo-core
-
 source $ZSH/oh-my-zsh.sh
 source ~/.keybindings
 source ~/.aliases

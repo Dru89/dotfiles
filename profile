@@ -1,5 +1,5 @@
 # PATH stuff
-export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.rbenv/bin:$HOME/Library/Android/sdk/platform-tools:$HOME/workspace/htv-tools:$HOME/workspace/htv-tools/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.rbenv/bin:$HOME/Library/Android/sdk/platform-tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 
 # Enable rbenv
 eval "$(rbenv init -)"
