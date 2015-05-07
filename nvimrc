@@ -33,6 +33,7 @@ call plug#begin()
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'hail2u/vim-css3-syntax'
 Plug 'kana/vim-surround'
 Plug 'kchmck/vim-coffee-script'
 Plug 'majutsushi/tagbar'
@@ -41,12 +42,13 @@ Plug 'mklabs/vim-fetch'
 Plug 'othree/html5.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-obsession'
 Plug 'vimwiki/vimwiki'
 
-" This one depends on 'tpope/obsession'
-Plug 'dhruvasagar/vim-prosession'
+" Requires dependencies on plugins above:
+Plug 'gregsexton/gitv'            " => tpope/vim-fugitive
 call plug#end()
 
 filetype plugin on

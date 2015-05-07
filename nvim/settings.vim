@@ -1,5 +1,10 @@
 let vimsettings = "~/.nvim/settings"
+let vimlocal = "~/.nvim/local"
 let uname = system("uname -s")
+
+for fpath in split(globpath(vimlocal, '*.vim'), '\n')
+    exe 'source' fpath
+endfor
 
 for fpath in split(globpath(vimsettings, '*.vim'), '\n')
     if (fpath == expand(vimsettings) . '/z-keymap-mac.vim') && uname[:5] !=? "Darwin"
