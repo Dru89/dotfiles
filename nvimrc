@@ -30,9 +30,13 @@ let mapleader = ","
 
 " ==================== PLUGINS =====================
 call plug#begin()
+"Lots of plugins use this.  Put it first.
+Plug 'tpope/vim-repeat'
+
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'flazz/vim-colorschemes'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'kana/vim-surround'
 Plug 'kchmck/vim-coffee-script'
@@ -45,7 +49,9 @@ Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-unimpaired'
 Plug 'vimwiki/vimwiki'
+Plug 'wellle/targets.vim'
 
 " Requires dependencies on plugins above:
 Plug 'gregsexton/gitv'            " => tpope/vim-fugitive
@@ -135,3 +141,7 @@ nnoremap <leader><c-u> viwU
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 inoremap jk <esc>
+
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>

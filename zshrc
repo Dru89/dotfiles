@@ -55,9 +55,11 @@ export NODE_PATH="/usr/local/lib/node_modules"
 source $ZSH/oh-my-zsh.sh
 source ~/.keybindings
 source ~/.aliases
-source ~/bin/z.sh
-source /usr/local/Cellar/arcanist/HEAD/arcanist/resources/shell/bash-completion
-source ~/.antigen.zsh
+
+ARCANIST_COMPLETION=/usr/local/Cellar/arcanist/HEAD/arcanist/resources/shell/bash-completion
+test -f $ARCANIST_COMPLETION && source $ARCANIST_COMPLETION
+test -f ~/.antigen.zsh && source ~/.antigen.zsh
+test -f ~/bin/z.sh && source ~/bin/z.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -88,4 +90,4 @@ alias vim='nvim'
 alias vi='nvim'
 
 # Enable rbenv
-eval "$(rbenv init -)"
+type rbenv 2>&1 > /dev/null && eval "$(rbenv init -)"

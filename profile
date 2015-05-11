@@ -2,7 +2,7 @@
 export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.rbenv/bin:$HOME/Library/Android/sdk/platform-tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 
 # Enable rbenv
-eval "$(rbenv init -)"
+type rbenv 2>&1 > /dev/null && eval "$(rbenv init -)"
 
 # Neovim variables
 export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
