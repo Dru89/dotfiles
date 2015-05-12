@@ -1,26 +1,51 @@
+" Make Y act like D, C, etc.
 nnoremap Y y$
 
+" Use 0 to go to beginning of code, ^ to go to beginning of line
 nnoremap 0 ^
 nnoremap ^ 0
 
+" j and k should move with word-wraps
 nnoremap j gj
 nnoremap k gk
+
+" "Open last file" is a common idea. Map it to ^e
 nnoremap <C-e> :e#<CR>
+
+" Some common toggles
 nnoremap <silent> \l :setlocal number! relativenumber!<CR>
 nnoremap <silent> \p :set paste!<CR>
 nnoremap <silent> \w :call ToggleList("Location List", 'l')<CR>
 nnoremap <silent> \q :call ToggleList("Quickfix List", 'c')<CR>
 nnoremap <silent> \g :GitGutterToggle<CR>
 
-nnoremap <leader>cn :cn<CR>
-nnoremap <leader>cp :cp<CR>
+" Move through quickfix/location list
+nnoremap <leader>cn :cnext<CR>
+nnoremap <leader>cp :cprevious<CR>
 nnoremap <leader>cc :cc<CR>
+nnoremap <leader>ln :lnext<CR>
+nnoremap <leader>lp :lprevious<CR>
+nnoremap <leader>ll :ll<CR>
 
-nnoremap <silent> ,z :bp<CR>
-nnoremap <silent> ,x :bn<CR>
+" Move through buffers
+nnoremap <silent> <leader>z :bprevious<CR>
+nnoremap <silent> <leader>x :bnext<CR>
+
+" j/k for <ESC>
+inoremap <silent> jk <esc>
+cnoremap <silent> jk <C-c>
+" This makes visual selection too slow :(
+" xnoremap <silent> jk <esc>
+
+" move through splits
+nnoremap <silent> <C-h> <C-w>h
+nnoremap <silent> <C-j> <C-w>j
+nnoremap <silent> <C-k> <C-w>k
+nnoremap <silent> <C-l> <C-w>l
 
 if has("nvim")
-    " Noremap in the terminal
+    " ===== TERMINAL mappings =====
+    " Use ^g to exit terminal mode
     tnoremap <C-g> <C-\><C-n>
 endif
 

@@ -6,28 +6,6 @@ if filereadable(expand("~/.nvimrc.before"))
     source ~/.nvimrc/before
 endif
 
-" ================== GENERAL CONFIG ========================
-set relativenumber                      " turn on relative line numbers
-set backspace=indent,eol,start          " Make backspace work normally in insert mode
-set history=1000                        " Lots of command history
-set showcmd                             " Show incomplete commands on bottom
-set showmode                            " Show the mode at the bottom
-set gcr=a:blinkon0                      " Cursors that blink are the worst
-set visualbell                          " No sounds
-set autoread                            " Automatically reload a file when it's changed
-set laststatus=2                        " Show two lines of status
-set mouse=nvicr                         " Set up some mouse options: normal, visual, insert, command-line, and hit-enter prompt
-
-" Hide buffers instead of killing them.
-set hidden
-
-" Turn on syntax highlighting
-syntax on
-
-" Set mapleader to ",", because it's closer.
-let mapleader = ","
-
-
 " ==================== PLUGINS =====================
 call plug#begin()
 "Lots of plugins use this.  Put it first.
@@ -38,6 +16,12 @@ Plug 'bling/vim-airline'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'hail2u/vim-css3-syntax'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug 'junegunn/vim-after-object'
+Plug 'junegunn/vim-emoji'
+Plug 'junegunn/vim-journal'
+Plug 'junegunn/vim-peekaboo'
+Plug 'justinmk/vim-gtfo'
 Plug 'kana/vim-surround'
 Plug 'kchmck/vim-coffee-script'
 Plug 'majutsushi/tagbar'
@@ -46,6 +30,7 @@ Plug 'mklabs/vim-fetch'
 Plug 'othree/html5.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-obsession'
@@ -61,6 +46,33 @@ call plug#end()
 filetype plugin on
 filetype indent on
 
+" ================== GENERAL CONFIG ========================
+set autoread                            " Automatically reload a file when it's changed
+set backspace=indent,eol,start          " Make backspace work normally in insert mode
+set gcr=a:blinkon0                      " Cursors that blink are the worst
+set history=1000                        " Lots of command history
+set laststatus=2                        " Show two lines of status
+set mouse=nvicr                         " Set up some mouse options: normal, visual, insert, command-line, and hit-enter prompt
+set relativenumber                      " turn on relative line numbers
+set shortmess=aIT                       " Abbreviate some messages, don't show :intro
+set showcmd                             " Show incomplete commands on bottom
+set showmode                            " Show the mode at the bottom
+set visualbell                          " No sounds
+
+" Hide buffers instead of killing them.
+set hidden
+
+" Allow to position the cursor "between" characters in block mode.
+set virtualedit=block
+
+" Don't break on after a one-letter word. Remove comment leaders.
+set formatoptions+=1j
+
+" Turn on syntax highlighting
+syntax on
+
+" Set mapleader to ",", because it's closer.
+let mapleader = ","
 
 " ==================== SWAP FILES =======================
 " Live on the edge.
@@ -133,16 +145,7 @@ source ~/.nvim/settings.vim
 " time, so I'll try to list all of the places here:
 " * https://github.com/skwp/dotfiles/blob/master/vimrc
 
-" Learn Vimscript the Hard Way
-nnoremap <leader><space> za
-noremap <leader>- ddp
-noremap <leader>_ ddkP
-inoremap <leader><c-u> <esc>viwUi
-nnoremap <leader><c-u> viwU
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
 inoremap jk <esc>
-
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>

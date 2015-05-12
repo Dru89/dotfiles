@@ -91,3 +91,4 @@ alias vi='nvim'
 
 # Enable rbenv
 type rbenv 2>&1 > /dev/null && eval "$(rbenv init -)"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

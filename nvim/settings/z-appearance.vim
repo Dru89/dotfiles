@@ -13,3 +13,9 @@ let g:molokai_original = 1
 let g:rehash256 = 1
 colorscheme molokai
 let g:airline_powerline_fonts = 1
+
+function! s:hl()
+  " echo synIDattr(synID(line('.'), col('.'), 0), 'name')
+  echo join(map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")'), '/')
+endfunction
+command! HL call <SID>hl()
