@@ -37,6 +37,9 @@ cnoremap <silent> jk <C-c>
 " This makes visual selection too slow :(
 " xnoremap <silent> jk <esc>
 
+" Find a file
+nnoremap <leader>e :Explore<CR>
+
 " move through splits
 nnoremap <silent> <C-h> <C-w>h
 nnoremap <silent> <C-j> <C-w>j
