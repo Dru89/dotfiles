@@ -8,7 +8,7 @@ function! FZFGit()
         call fzf#run({
             \ 'source': 'git ls-files . --cached --exclude-standard --others',
             \ 'sink': 'e',
-            \ 'up': 30,
+            \ 'up': 13,
             \ 'dir': gitp,
             \ 'options': '-m'
             \ })
