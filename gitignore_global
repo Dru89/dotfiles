@@ -1,11 +1,15 @@
+# The usual things to ignore
 eclipse-bin
-test-output
+tags
 .classpath
 .project
 .settings
-.agignore
-Session.vim
 *.iml
-tags
+
+# Some things that I don't want to check into work repos
+# Not everyone uses ag
+.agignore
+# Not everyone uses overcommit
 .overcommit.yml
+# I copy the coffeelint file here so my editor sees it
 /coffeelint.json
