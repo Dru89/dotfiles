@@ -1,10 +1,16 @@
 #!/usr/bin/env zsh
-alias randstr='cat /dev/urandom | env LC_CTYPE=C tr -cd 'A-Za-z0-9' | head -c'
+
+alias randstr="cat /dev/urandom | env LC_CTYPE=C tr -cd 'A-Za-z0-9' | head -c"
 alias rake='noglob rake'
 alias tiga='tig --all'
+alias q='ag -Q'
 alias .='cd .'
 alias ..='cd ..'
-alias ...='cd ...'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+
+alias mkvirtualenv3='mkvirtualenv --python=$(which python3)'
 
 function cdws() {
 cd $HOME/workspace/$1

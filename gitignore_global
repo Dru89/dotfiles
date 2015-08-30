@@ -1,4 +1,3 @@
-build
 eclipse-bin
 test-output
 .classpath
@@ -7,3 +6,6 @@ test-output
 .agignore
 Session.vim
 *.iml
+tags
+.overcommit.yml
+/coffeelint.json

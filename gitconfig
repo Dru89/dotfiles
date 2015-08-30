@@ -2,8 +2,13 @@
     path = ~/.local_gitconfig
 [user]
     name = Drew Hays
+    email = drewshays@gmail.com
 [push]
     default = simple
+[pull]
+    rebase = preserve
+[merge]
+    ff = false
 [alias]
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all --date=local
@@ -14,9 +19,9 @@
     odiff = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short
     list-changes = log --branches  --not --remotes --simplify-by-decoration --decorate --oneline
     cdiff = log --left-right --graph --cherry-pick --oneline
-	stashdiff = stash show -p
-	ws = rebase --whitespace=fix
-	diff-upstream = diff @{upstream}
+    stashdiff = stash show -p
+    ws = rebase --whitespace=fix
+    diff-upstream = diff @{upstream}
 [color]
     branch = auto
     diff = auto
@@ -35,6 +40,10 @@
     clean = git media clean %f
     smudge = git media smudge %f
 [difftool]
-	prompt = false
+    prompt = false
 [mergetool]
-	prompt = false
+    prompt = false
+[filter "lfs"]
+    clean = git-lfs clean %f
+    smudge = git-lfs smudge %f
+    required = true

@@ -1,0 +1,184 @@
+---
+# See: https://github.com/brigade/overcommit
+
+# These run for every commit message you write.
+CommitMsg:
+    # Subjects should start capitalized
+    CapitalizedSubject:
+        enabled: true
+
+    # Don't allow empty commits
+    EmptyMessage:
+        enabled: true
+
+    # No hard tabs in commit messages.
+    HardTabs:
+        enabled: true
+
+    # Warns you when you're writing a really long
+    # commit message.
+    RussianNovel:
+        enabled: true
+
+    # No second line on your commit message.
+    SingleLineSubject:
+        enabled: true
+
+    # Follow tpope's commit message rules:
+    # http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
+    TextWidth:
+        enabled: true
+        max_subject_width: 50
+        max_body_width: 72
+
+    # No traling periods in your commit messages
+    TrailingPeriod:
+        enabled: true
+
+# These run before every commit is executed.
+# All linters only run when a file of that type has
+# changed.  It shouldn't run for every single commit.
+# NOTE: these can't have side effects. only pass/fail
+PreCommit:
+    # Try to validate emails a little bit.
+    AuthorEmail:
+        enabled: true
+
+    # All authors should have a first and last name, at least.
+    # (Yes, I know this makes assumptions, but it only checks the
+    # things that I'm committing.)
+    AuthorName:
+        enabled: true
+
+    # Check all symlinks to make sure they're not broken.
+    BrokenSymlinks:
+        enabled: true
+
+    # Make sure local Gemfile.lock matches Gemfile
+    BundleCheck:
+        enabled: true
+
+    # Can't have two files that have the same name in
+    # case-insensitive directories
+    CaseConflicts:
+        enabled: true
+
+    # Always lint coffee files before committing.
+    CoffeeLint:
+        enabled: true
+
+    # Always lint CSS files before committing.
+    CssLint:
+        enabled: true
+
+    # Files shouldn't need execute permissions, for the
+    # most part.  But if they do contain them, just warn
+    # me for now.
+    # TODO: Will need to add ignored files as needed here.
+    ExecutePermissions:
+        enabled: true
+        on_fail: 'warn'
+
+    # Lint my html files.
+    HtmlHint:
+        enabled: true
+
+    # Run checkstyle on Java files
+    JavaCheckstyle:
+        enabled: true
+
+    # Verify JSON syntax
+    JsonSyntax:
+        enabled: true
+
+    # Gemfiles should use local paths, instead
+    # of remote ones.
+    LocalPathsInGemfiles:
+        enabled: true
+
+    # Don't check in merge conflicts.
+    MergeConflicts:
+        enabled: true
+
+    # Always lint SCSS files before committing
+    ScssLint:
+        enabled: true
+
+    # Lint my shell files.
+    ShellCheck:
+        enabled: true
+
+    # Lint my javascript files.
+    Standard:
+        enabled: true
+
+    # No trailing whitespace in my commits.
+    TrailingWhitespace:
+        enabled: true
+
+    # Lint my yaml files (like this one).
+    YamlSyntax:
+        enabled: true
+
+# Run before every `git push`
+PrePush:
+    # I can't delete/rebase these branches if
+    # they've already been pushed.  History
+    # must remain as it is.
+    ProtectedBranches:
+        enabled: true
+        branches:
+            - develop
+            - master
+
+# Run before every rebase (`git rebase` and `git pull --rebase`)
+PreRebase:
+    # I can't delete/rebase a branch if it's
+    # already been merged into these branches.
+    # History must remain as it is.
+    MergedCommits:
+        enabled: true
+        branches:
+            - develop
+            - master
+
+# Some common plugins across different git hooks
+Shared: &shared
+    # If package.json changed, run npm install
+    NpmInstall:
+        enabled: true
+
+    # If bower.json changed, run bower install
+    BowerInstall:
+        enabled: true
+
+    # If Gemfile changed, run bundle install
+    BundleInstall:
+        enabled: true
+
+    # Generate my tags for jumping to method
+    # declarations
+    IndexTags:
+        enabled: true
+
+    # Check for submodules that are out of date,
+    # uninitialized, or contain merge conflicts
+    SubmoduleStatus:
+        enabled: true
+
+# After every checkout.
+PostCheckout:
+    <<: *shared
+
+# After every commit.
+PostCommit:
+    <<: *shared
+
+# After every merge.
+PostMerge:
+    <<: *shared
+
+# After every amend to a commit or rebase
+PostRewrite:
+    <<: *shared
+...

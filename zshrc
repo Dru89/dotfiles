@@ -65,7 +65,7 @@ test -f ~/bin/z.sh && source ~/bin/z.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-export EDITOR='vim'
+export EDITOR='nvim'
 
 # 256 color terminal
 export TERM='xterm-256color'
@@ -88,7 +88,10 @@ alias sudo="sudo "
 alias e='nvim'
 alias vim='nvim'
 alias vi='nvim'
+alias workoff='deactivate'
 
 # Enable rbenv
 type rbenv 2>&1 > /dev/null && eval "$(rbenv init -)"
+
+# Enable fuzzy finder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
