@@ -116,6 +116,10 @@ PreCommit:
     TrailingWhitespace:
         enabled: true
 
+        # NOTE: This is probably not recommended, but I have
+        # teammates that don't care about unmodified lines
+        problem_on_unmodified_line: 'ignore'
+
     # Lint my yaml files (like this one).
     YamlSyntax:
         enabled: true

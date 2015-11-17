@@ -2,7 +2,6 @@
     path = ~/.local_gitconfig
 [user]
     name = Drew Hays
-    email = drewshays@gmail.com
 [push]
     default = simple
 [pull]
@@ -22,6 +21,9 @@
     stashdiff = stash show -p
     ws = rebase --whitespace=fix
     diff-upstream = diff @{upstream}
+    unmerged = log --no-merges
+    merge-squash = merge --ff --squash
+    explore = clone --depth=1
 [color]
     branch = auto
     diff = auto

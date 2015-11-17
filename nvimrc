@@ -12,9 +12,14 @@ call plug#begin()
 Plug 'tpope/vim-repeat'
 
 Plug 'airblade/vim-gitgutter'
+Plug 'aklt/plantuml-syntax'
+Plug 'ap/vim-css-color'
 Plug 'bling/vim-airline'
+Plug 'briancollins/vim-jst'
+Plug 'chooh/brightscript.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'flazz/vim-colorschemes'
+Plug 'groenewege/vim-less'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'junegunn/vim-after-object'
@@ -27,12 +32,15 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'majutsushi/tagbar'
 Plug 'mileszs/ack.vim'
 Plug 'mklabs/vim-fetch'
+Plug 'mxw/vim-jsx'
 Plug 'othree/html5.vim'
+Plug 'pangloss/vim-javascript'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-liquid'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-unimpaired'
@@ -108,7 +116,7 @@ set textwidth=120       " Max width of text should be 120 characters
 
 " ==================== FOLDS =============================
 set foldmethod=indent   " Fold at the indent level
-set foldnestmax=3       " Only fold to the third level   
+set foldnestmax=3       " Only fold to the third level
 set nofoldenable        " Don't turn on folding by default, though
 
 

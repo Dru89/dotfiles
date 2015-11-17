@@ -3,6 +3,7 @@
 alias randstr="cat /dev/urandom | env LC_CTYPE=C tr -cd 'A-Za-z0-9' | head -c"
 alias rake='noglob rake'
 alias tiga='tig --all'
+alias arc='OVERCOMMIT_DISABLE=1 arc'
 alias q='ag -Q'
 alias .='cd .'
 alias ..='cd ..'
@@ -22,3 +23,8 @@ mkdir -p $HOME/workspace/$1
 
 compctl -/ -W $HOME/workspace cdws
 compctl -/ -W $HOME/workspace mkws
+
+function serve() {
+port="${1:-3000}"
+ruby -run -e httpd . -p $port
+}

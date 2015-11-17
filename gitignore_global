@@ -4,7 +4,6 @@ tags
 .classpath
 .project
 .settings
-*.iml
 
 # Some things that I don't want to check into work repos
 # Not everyone uses ag
