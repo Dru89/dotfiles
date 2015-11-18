@@ -8,7 +8,7 @@ type rbenv 2>&1 > /dev/null && eval "$(rbenv init -)"
 export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 # Make virtualenv work
-source /usr/local/bin/virtualenvwrapper.sh
+test -f /usr/local/bin/virtualenvwrapper.sh && source /usr/local/bin/virtualenvwrapper.sh
 
 test -f ~/.localprofile && source ~/.localprofile
 
