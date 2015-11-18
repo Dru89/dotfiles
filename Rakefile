@@ -4,7 +4,7 @@ require 'pathname'
 
 NO_SYMLINK_DIRS = %w[oh-my-zsh]
 IGNORED_FILES   = %w[Rakefile README.md LICENSE]
-SYMLINK_ALIASES = {"nvim" => ["vim"], "nvimrc" => ["vimrc"]}
+SYMLINK_ALIASES = {"config/nvim" => ["vim"], "config/nvim/init.vim" => ["vimrc"]}
 
 desc "test to make sure that all files get copied over"
 task :setup_shell do
@@ -14,13 +14,23 @@ end
 
 task :install => [:setup_shell] do
   process_folder()
+  process_symlinks()
 end
 
 task :force => [:setup_shell] do
   process_folder(nil, replace_identical: true, replace_all: true)
+  process_symlinks()
 end
 
 task :default => [:install]
+
+def process_symlinks()
+  SYMLINK_ALIASES.each do |file, aliases|
+    aliases.each do |symlink_alias|
+      replace_file(symlink_alias, file)
+    end
+  end
+end
 
 def process_folder(folder=nil, opts={})
   replace_all = opts[:replace_all] || false
@@ -93,11 +103,6 @@ def link_file(file, source=nil)
       puts " to #{source}"
     end
     system %Q{ln -s "$PWD/#{infile}" "$HOME/.#{file}"}
-  end
-  if SYMLINK_ALIASES.has_key? file
-    SYMLINK_ALIASES[file].each do |symlink_alias|
-      replace_file(symlink_alias, file)
-    end
   end
 end
 

@@ -1,5 +1,5 @@
-let vimsettings = "~/.nvim/settings"
-let vimlocal = "~/.nvim/local"
+let vimsettings = "~/.config/nvim/settings"
+let vimlocal = "~/.config/nvim/local"
 let uname = system("uname -s")
 
 for fpath in split(globpath(vimlocal, '*.vim'), '\n')

@@ -1,11 +1,6 @@
 " Use vim settings.  Should be default on nvim
 set nocompatible
 
-" Load the 'before' file if it exists
-if filereadable(expand("~/.nvimrc.before"))
-    source ~/.nvimrc/before
-endif
-
 " ==================== PLUGINS =====================
 call plug#begin()
 "Lots of plugins use this.  Put it first.
@@ -92,8 +87,8 @@ set nowb
 
 " ==================== PERSISTENT UNDO ========================
 if has('persistent_undo')
-    silent !mkdir ~/.nvim/backups > /dev/null 2>&1
-    set undodir=~/.nvim/backups
+    silent !mkdir ~/.config/nvim/backups > /dev/null 2>&1
+    set undodir=~/.config/nvim/backups
     set undofile
 endif
 
@@ -149,7 +144,7 @@ set smartcase
 
 
 " =============== CUSTOM SETTINGS ===============
-source ~/.nvim/settings.vim
+source ~/.config/nvim/settings.vim
 " Okay, I won't lie.  This is taken and modified from a number of sources.  It's grown a lot and changed a lot over
 " time, so I'll try to list all of the places here:
 " * https://github.com/skwp/dotfiles/blob/master/vimrc
