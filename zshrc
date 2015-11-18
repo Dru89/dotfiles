@@ -1,3 +1,8 @@
+# use online help
+unalias run-help
+autoload run-help
+HELPDIR=/usr/local/share/zsh/help
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
