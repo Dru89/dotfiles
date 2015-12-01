@@ -34,12 +34,31 @@ ruby -run -e httpd . -p $port
 }
 
 # pick neovim if it exists, otherwise make vim the primary editor
+#
+# HACK ALERT! HACK ALERT! HACK ALERT!
+# NOTE: to future self or anyone else interested:
+# I'm using `sh -c 'command -v <cmd>'` here for a couple of reasons:
+# 
+# I need `command -v <cmd>` to return true if (and only if) `<cmd>`
+# is installed, but the aliases below for `vi`, `vim`, and `nvim`
+# cause `command -v <cmd>` alone to return `true` always (because the
+# alias exists).  To counter this, I run it in
+# `sh -c 'command -v <cmd>'`, so that it's in a subshell where the
+# aliases no longer exist.
+#
+# And then to prevent the horrible infinite loop that would occur by
+# invoking `vi`, `vim`, or `nvim` within the method (remember that
+# they're defined as aliases), I simply use `command <cmd>` to run
+# the original, unaliased command.
 function pick_vim {
 if sh -c 'command -v nvim' > /dev/null; then
     command nvim $@
 elif sh -c 'command -v vim' > /dev/null; then
     command vim $@
 elif sh -c 'command -v vi' > /dev/null; then
+    # I show this message and wait two seconds, so I can read it.
+    # I should never have to deal with only having `vi` installed,
+    # I hope. :(
     echo "Neovim and vim aren't installed.  Falling back to vi!  Good luck!"
     sleep 2
     command vi $@
