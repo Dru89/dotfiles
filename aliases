@@ -57,7 +57,7 @@ alias nvim='pick_vim'
 # (found and slightly adapted from http://superuser.com/a/141241) #
 ###################################################################
 function sshagent_findsockets() {
-find /tmp -uid $(id -u) -type s -name agent.\* 2> /dev/null
+find /tmp /var/folders -uid $(id -u) -type s -name agent.\* 2> /dev/null
 }
 
 function sshagent_testsocket {
@@ -70,12 +70,12 @@ if [ -n "$1" ]; then
     export SSH_AUTH_SOCK=$1
 fi
 
-if [ -n "$SSH_AUTH_SOCK" ]; then
+if [ -z "$SSH_AUTH_SOCK" ]; then
     return 2
 fi
 
 if [ -S $SSH_AUTH_SOCK ]; then
-    ssh-add -l > /dev/null
+    ssh-add -l > /dev/null 2> /dev/null
     if [ $? = 2 ]; then
         echo "Socket $SSH_AUTH_SOCK is dead! Deleting!"
         rm -f $SSH_AUTH_SOCK
