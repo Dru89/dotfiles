@@ -10,6 +10,8 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
+alias sudo="sudo "
+alias workoff="deactivate" # opposite of virtualenv's "workon <env>"
 
 alias mkvirtualenv3='mkvirtualenv --python=$(which python3)'
 
@@ -24,7 +26,99 @@ mkdir -p $HOME/workspace/$1
 compctl -/ -W $HOME/workspace cdws
 compctl -/ -W $HOME/workspace mkws
 
+# Serve an HTTP server from the current directory
 function serve() {
 port="${1:-3000}"
 ruby -run -e httpd . -p $port
 }
+
+# pick neovim if it exists, otherwise make vim the primary editor
+function pick_vim {
+if command -v nvim > /dev/null; then
+    nvim $@
+elif command -v vim > /dev/null; then
+    vim $@
+elif command -v vi > /dev/null; then
+    echo "Neovim and vim aren't installed.  Falling back to vi!  Good luck!"
+    sleep 2
+    vi $@
+else
+    echo "You don't have neovim, vim, or even vi (!!) running on this machine!";
+fi
+}
+
+alias e='pick_vim'
+alias vi='pick_vim'
+alias vim='pick_vim'
+alias nvim='pick_vim'
+
+###################################################################
+#                         SSH-AGENT STUFF                         #
+# (found and slightly adapted from http://superuser.com/a/141241) #
+###################################################################
+function sshagent_findsockets() {
+find /tmp -uid $(id -u) -type s -name agent.\* 2> /dev/null
+}
+
+function sshagent_testsocket {
+if ! command -v ssh-add > /dev/null; then
+    echo "ssh-add is not available; agent testing aborted"
+    return 1
+fi
+
+if [ -n "$1" ]; then
+    export SSH_AUTH_SOCK=$1
+fi
+
+if [ -n "$SSH_AUTH_SOCK" ]; then
+    return 2
+fi
+
+if [ -S $SSH_AUTH_SOCK ]; then
+    ssh-add -l > /dev/null
+    if [ $? = 2 ]; then
+        echo "Socket $SSH_AUTH_SOCK is dead! Deleting!"
+        rm -f $SSH_AUTH_SOCK
+        return 4
+    else
+        echo "Found ssh-agent $SSH_AUTH_SOCK"
+        return 0
+    fi
+else
+    echo "$SSH_AUTH_SOCK is not a socket!"
+    return 3
+fi
+}
+
+function sshagent_init {
+# ssh agent sockets can be attached to a ssh daemon process or an
+# ssh-agent process
+AGENTFOUND=0
+
+# Attempt to find and use the ssh-agent in the current environment
+if sshagent_testsocket; then AGENTFOUND=1; fi
+
+# if there is no agent in the environment, search /tmp for possible
+# agents to reuse before starting a fresh ssh-agent process
+if [ $AGENTFOUND = 0 ]; then
+    for agentsocket in $(sshagent_findsockets); do
+        if [ $AGENTFOUND != 0 ]; then break; fi
+        if sshagent_testsocket $agentsocket; then AGENTFOUND=1; fi
+    done
+fi
+
+# if at this point, we still haven't located an agent, it's time to
+# start a new one
+if [ $AGENTFOUND = 0 ]; then
+    eval "$(ssh-agent -s)"
+fi
+
+# Clean up
+unset AGENTFOUND
+unset agentsocket
+
+# Finally, show what keys are currently in the agent
+ssh-add -l
+}
+
+alias sagent="sshagent_init"

@@ -24,6 +24,7 @@
     unmerged = log --no-merges
     merge-squash = merge --ff --squash
     explore = clone --depth=1
+    message = log --format='%B' -1
 [color]
     branch = auto
     diff = auto
@@ -31,7 +32,7 @@
     status = auto
     ui = auto
 [core]
-    pager = less -RMSI
+    pager = less -FIMRSX
     excludesfile = ~/.gitignore_global
 [diff]
     algorithm = patience
