@@ -35,11 +35,11 @@ ruby -run -e httpd . -p $port
 
 # pick neovim if it exists, otherwise make vim the primary editor
 function pick_vim {
-if command -v nvim > /dev/null; then
+if env -i command -v nvim > /dev/null; then
     nvim $@
-elif command -v vim > /dev/null; then
+elif env -i command -v vim > /dev/null; then
     vim $@
-elif command -v vi > /dev/null; then
+elif env -i command -v vi > /dev/null; then
     echo "Neovim and vim aren't installed.  Falling back to vi!  Good luck!"
     sleep 2
     vi $@
