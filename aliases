@@ -23,8 +23,9 @@ function mkws() {
 mkdir -p $HOME/workspace/$1
 }
 
-compctl -/ -W $HOME/workspace cdws
-compctl -/ -W $HOME/workspace mkws
+# TODO: Autocompletion in bash?
+command -v compctl > /dev/null && compctl -/ -W $HOME/workspace cdws
+command -v compctl > /dev/null && compctl -/ -W $HOME/workspace mkws
 
 # Serve an HTTP server from the current directory
 function serve() {
