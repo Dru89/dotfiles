@@ -29,8 +29,9 @@ command -v compctl > /dev/null && compctl -/ -W $HOME/workspace mkws
 
 # Serve an HTTP server from the current directory
 function serve() {
-port="${1:-3000}"
-ruby -run -e httpd . -p $port
+dir="${1:-.}"
+port="${2:-3000}"
+ruby -run -e httpd $dir -p $port
 }
 
 # pick neovim if it exists, otherwise make vim the primary editor
@@ -67,6 +68,7 @@ else
 fi
 }
 
+alias a='atom'
 alias e='pick_vim'
 alias vi='pick_vim'
 alias vim='pick_vim'
