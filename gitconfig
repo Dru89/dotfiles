@@ -36,8 +36,10 @@
     excludesfile = ~/.gitignore_global
 [diff]
     algorithm = patience
-[url "https://github.com/"]
+[url "git://github.com/"]
     insteadOf = "gh:"
+[url "git@github.com:"]
+    pushInsteadOf = "git://github.com"
 [filter "media"]
     required = true
     clean = git media clean %f
