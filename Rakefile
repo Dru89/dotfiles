@@ -2,7 +2,7 @@ require 'rake'
 require 'erb'
 require 'pathname'
 
-NO_SYMLINK_DIRS = %w[oh-my-zsh]
+NO_SYMLINK_DIRS = %w[config]
 IGNORED_FILES   = %w[Rakefile README.md LICENSE]
 SYMLINK_ALIASES = {"config/nvim" => ["vim"], "config/nvim/init.vim" => ["vimrc"]}
 
@@ -49,7 +49,7 @@ def process_folder(folder=nil, opts={})
 
     if File.directory?(file) and (force_traverse or NO_SYMLINK_DIRS.include?(file))
       system %Q{mkdir -p "$HOME/.#{file}"}
-      process_folder(file, force_traverse: true, replace_all: replace_all, replace_identical: replace_identical)
+      process_folder(file, replace_all: replace_all, replace_identical: replace_identical)
     elsif File.exist?(abspath) or File.symlink?(abspath)
       if File.identical?(file, abspath) and not replace_identical
         puts "identical ~/#{filename}"
