@@ -8,6 +8,7 @@ HELPDIR=/usr/local/share/zsh/help
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+export ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 
 # Oh-my-zsh theme
 ZSH_THEME="prose"
