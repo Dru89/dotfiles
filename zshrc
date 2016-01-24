@@ -22,3 +22,5 @@ test -f ~/.keybindings && source ~/.keybindings
 test -f ~/.antigen.zsh && source ~/.antigen.zsh
 test -f ~/.fzf.zsh && source ~/.fzf.zsh
 command -v rbenv > /dev/null && eval "$(rbenv init - zsh)"
+
+test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
