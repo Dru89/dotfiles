@@ -36,6 +36,7 @@
     excludesfile = ~/.gitignore_global
 [diff]
     algorithm = patience
+    tool = vimdiff
 [url "git://github.com/"]
     insteadOf = "gh:"
 [url "git@github.com:"]
@@ -48,7 +49,10 @@
     prompt = false
 [mergetool]
     prompt = false
+    keepBackup = false
 [filter "lfs"]
     clean = git-lfs clean %f
     smudge = git-lfs smudge %f
     required = true
+[mergetool "vimdiff"]
+    cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'

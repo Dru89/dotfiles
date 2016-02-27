@@ -38,7 +38,9 @@ cnoremap <silent> jk <C-c>
 " xnoremap <silent> jk <esc>
 
 " Find a file
-nnoremap <leader>e :Explore<CR>
+nnoremap \e :Explore<CR>
+nnoremap <leader>e :NERDTreeToggle<CR>
+nnoremap <leader>f :NERDTreeFind<CR>
 
 " move through splits
 nnoremap <silent> <C-h> <C-w>h
