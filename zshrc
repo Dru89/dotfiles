@@ -2,7 +2,7 @@
 test -z $PROFILE_SOURCED && source ~/.profile
 
 # use online help
-unalias run-help
+unalias run-help &> /dev/null
 autoload run-help
 HELPDIR=/usr/local/share/zsh/help
 
@@ -19,6 +19,7 @@ plugins=(brew git git-extras pip extract)
 # conditional scripts
 test -f $ZSH/oh-my-zsh.sh && source $ZSH/oh-my-zsh.sh
 test -f ~/.keybindings && source ~/.keybindings
+test -f ~/.noglob && source ~/.noglob
 test -f ~/.antigen.zsh && source ~/.antigen.zsh
 test -f ~/.fzf.zsh && source ~/.fzf.zsh
 command -v rbenv > /dev/null && eval "$(rbenv init - zsh)"

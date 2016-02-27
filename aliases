@@ -1,7 +1,6 @@
 #!/usr/bin/env zsh
 
 alias randstr="cat /dev/urandom | env LC_CTYPE=C tr -cd 'A-Za-z0-9' | head -c"
-alias rake='noglob rake'
 alias tiga='tig --all'
 alias arc='OVERCOMMIT_DISABLE=1 arc'
 alias q='ag -Q'
