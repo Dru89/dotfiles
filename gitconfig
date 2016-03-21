@@ -1,7 +1,6 @@
-[include]
-    path = ~/.local_gitconfig
 [user]
     name = Drew Hays
+    email = drewshays@gmail.com
 [push]
     default = simple
 [pull]
@@ -56,3 +55,5 @@
     required = true
 [mergetool "vimdiff"]
     cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[include]
+    path = ~/.local_gitconfig
