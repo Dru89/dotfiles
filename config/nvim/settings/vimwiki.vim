@@ -1,1 +1,1 @@
-let g:vimwiki_list = [{'path': '~/wiki', 'path_html': '~/wiki/.html', 'syntax': 'markdown', 'ext': '.mkd'}]
+let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki', 'path_html': '~/Dropbox/vimwiki/.html', 'syntax': 'markdown', 'ext': '.mkd'}]
