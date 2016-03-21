@@ -6,4 +6,5 @@ test -z $PROFILE_SOURCED && source ~/.profile
 
 # conditional scripts
 test -f ~/.fzf.bash && source ~/.fzf.bash
+test -f ~/.shellrc && source ~/.shellrc
 command -v rbenv > /dev/null && eval "$(rbenv init - bash)"
