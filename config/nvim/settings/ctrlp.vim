@@ -8,7 +8,23 @@ let g:ctrlp_match_window_bottom = 0
 let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_extensions = ['buffertag']
 
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others']
+
+if executable('ag')
+    let command = ['.git', 'ag %s -l --nocolor -g ""']
+    let fallback = 'ag %s -l --nocolor -g ""'
+    let g:ctrlp_use_caching = 0
+else
+    let command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others']
+    let fallback = 'find %s -type f'
+endif
+
+let g:ctrlp_user_command = {
+            \ 'types': {
+            \      1: command
+            \      },
+            \ 'fallback': fallback
+            \ }
+
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v(\.(git|hg|svn)|build|vendor)$',
     \ 'file': '\v(\.(exe|so|dll|pyc|swp)|~)$',
