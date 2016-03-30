@@ -50,8 +50,12 @@ nnoremap <silent> <C-l> <C-w>l
 
 if has("nvim")
     " ===== TERMINAL mappings =====
-    " Use ^g to exit terminal mode
-    tnoremap <C-g> <C-\><C-n>
+    " Use <esc> to exit terminal mode
+    tnoremap <silent> <ESC> <C-\><C-n>
+    tnoremap <silent> <C-h> <C-\><C-n><C-w>h
+    tnoremap <silent> <C-j> <C-\><C-n><C-w>j
+    tnoremap <silent> <C-k> <C-\><C-n><C-w>k
+    tnoremap <silent> <C-l> <C-\><C-n><C-w>l
 endif
 
 function! GetBufferList()
