@@ -1,5 +1,6 @@
 # PATH setup
-export PATH="./node_modules/.bin:$HOME/.rbenv/shims:$HOME/bin:$HOME/.local/bin:$HOME/.rbenv/bin:$HOME/Library/Android/sdk/platform-tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PATH="./node_modules/.bin:$HOME/.rbenv/shims:$HOME/bin:$HOME/.local/bin:$HOME/.rbenv/bin:$HOME/Library/Android/sdk/platform-tools:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export GOPATH="$HOME/workspace/go"
 
 # node modules
 export NODE_PATH="/usr/local/lib/node_modules"
