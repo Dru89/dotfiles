@@ -26,8 +26,8 @@ test -f $ZSH/oh-my-zsh.sh && source $ZSH/oh-my-zsh.sh
 test -f ~/.keybindings && source ~/.keybindings
 test -f ~/.noglob && source ~/.noglob
 test -f ~/.antigen.zsh && source ~/.antigen.zsh
-test -f ~/.fzf.zsh && source ~/.fzf.zsh
 test -f ~/.shellrc && source ~/.shellrc
+test -f ~/.fzf.zsh && source ~/.fzf.zsh
 command -v rbenv > /dev/null && eval "$(rbenv init - zsh)"
 
 test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
@@ -40,3 +40,6 @@ function precmd() {
         echo "$USER@`hostname`:`pwd` [$(date -u)] `\history -1`" >> ${FULL_CMD_LOG}
     fi
 }
+
+fpath=(~/.zsh/completions $fpath) 
+autoload -U compinit && compinit

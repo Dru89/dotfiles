@@ -14,6 +14,8 @@ alias workoff="deactivate" # opposite of virtualenv's "workon <env>"
 
 alias mkvirtualenv3='mkvirtualenv --python=$(which python3)'
 
+command -v hub > /dev/null && eval "$(hub alias -s)"
+
 function cdws() {
 cd $HOME/workspace/$1
 }
@@ -31,6 +33,11 @@ function serve() {
 dir="${1:-.}"
 port="${2:-3000}"
 ruby -run -e httpd $dir -p $port
+}
+
+function jql() {
+arg="${1:-.}"
+jq -C "$arg" | less
 }
 
 # pick neovim if it exists, otherwise make vim the primary editor
