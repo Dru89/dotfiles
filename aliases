@@ -13,6 +13,7 @@ alias sudo="sudo "
 alias workoff="deactivate" # opposite of virtualenv's "workon <env>"
 
 alias mkvirtualenv3='mkvirtualenv --python=$(which python3)'
+alias pip='noglob pip2' # the once and future pip
 
 command -v hub > /dev/null && eval "$(hub alias -s)"
 

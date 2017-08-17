@@ -14,7 +14,7 @@ export ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 ZSH_THEME="prose"
 
 # Oh-my-zsh plugins
-plugins=(brew git git-extras pip extract)
+plugins=(brew git git-extras pip extract rbenv)
 
 # History
 export HISTSIZE=100000
