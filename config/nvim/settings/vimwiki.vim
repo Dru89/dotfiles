@@ -1,7 +1,7 @@
 let g:vimwiki_list = [{
-    \ 'path': '~/Dropbox/wiki',
-    \ 'path_html': '~/Dropbox/wiki/.html',
-    \ 'syntax': 'default', 
+    \ 'path': '~/wiki',
+    \ 'path_html': '~/wiki/.html',
+    \ 'syntax': 'markdown', 
     \ 'ext': '.wiki',
     \ 'nested_syntaxes': {
         \ 'python': 'python',
