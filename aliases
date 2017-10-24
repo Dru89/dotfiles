@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 
 alias randstr="cat /dev/urandom | env LC_CTYPE=C tr -cd 'A-Za-z0-9' | head -c"
+alias randhex="cat /dev/urandom | env LC_CTYPE=C tr -cd 'a-f0-9' | head -c"
 alias tiga='tig --all'
 alias arc='OVERCOMMIT_DISABLE=1 arc'
 alias q='ag -Q'
