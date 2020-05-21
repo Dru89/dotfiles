@@ -12,6 +12,7 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias sudo="sudo "
 alias workoff="deactivate" # opposite of virtualenv's "workon <env>"
+alias code="code-insiders"
 
 alias mkvirtualenv3='mkvirtualenv --python=$(which python3)'
 alias pip='noglob pip2' # the once and future pip
