@@ -12,17 +12,17 @@ brew "freetype"
 brew "gettext"
 brew "readline"
 brew "xz"
+brew "sqlite"
 brew "python@3.9"
 brew "glib"
-brew "carthage"
 brew "coreutils"
-brew "nghttp2"
 brew "curl"
 brew "pkg-config"
 brew "guile"
 brew "libevent"
 brew "unbound"
 brew "gnutls"
+brew "harfbuzz"
 brew "ffmpeg"
 brew "fzf"
 brew "gd"
@@ -33,16 +33,13 @@ brew "git-delta"
 brew "git-extras"
 brew "gnu-getopt"
 brew "gnu-sed"
-brew "gradle"
+brew "netpbm"
+brew "pango"
 brew "graphviz"
 brew "helm"
 brew "httpie"
 brew "hub"
 brew "imagemagick"
-brew "imagemagick@6"
-brew "libimobiledevice", args: ["HEAD"]
-brew "ios-webkit-debug-proxy", args: ["HEAD"]
-brew "python@3.8"
 brew "irssi"
 brew "jq"
 brew "libiconv"
@@ -53,13 +50,11 @@ brew "libxml2"
 brew "lua"
 brew "lzip"
 brew "mas"
-brew "maven"
 brew "mercurial"
 brew "msgpack"
 brew "mysql"
 brew "neovim"
 brew "netcat"
-brew "nginx"
 brew "nmap"
 brew "node"
 brew "pandoc"
@@ -74,12 +69,9 @@ brew "redis"
 brew "ripgrep"
 brew "rsync"
 brew "ruby"
-brew "sourcery"
 brew "starship"
+brew "stow"
 brew "swiftlint"
-brew "task"
-brew "taskd"
-brew "tasksh"
 brew "telnet"
 brew "the_silver_searcher"
 brew "tidy-html5"
@@ -87,25 +79,18 @@ brew "tig"
 brew "tmux"
 brew "tree"
 brew "v8"
-brew "vegeta"
 brew "watch"
-brew "watchman"
 brew "wget"
-brew "yarn"
 brew "yq"
 brew "zlib"
 brew "zsh"
 brew "rs/tap/dnstrace"
 cask "alacritty"
-cask "fastlane"
-cask "microsoft-edge-dev"
-cask "minikube"
 mas "Affinity Designer", id: 824171161
 mas "Affinity Photo", id: 824183456
 mas "Bear", id: 1091189122
 mas "Cardhop", id: 1290358394
 mas "Craft", id: 1487937127
-mas "Day One", id: 1055511498
 mas "Deliveries", id: 924726344
 mas "Developer", id: 640199958
 mas "Drafts", id: 1435957248
@@ -113,14 +98,10 @@ mas "Evernote Web Clipper", id: 1481669779
 mas "Fantastical", id: 975937182
 mas "Instapaper Save", id: 1481302432
 mas "JSONPeep", id: 1458969831
-mas "OmniFocus", id: 1346203938
+mas "Moom", id: 419330170
 mas "Pastebot", id: 1179623856
-mas "Quiver", id: 866773894
 mas "Raindrop.io for Safari", id: 957810159
 mas "Reeder", id: 1529448980
 mas "Ring", id: 1142753258
 mas "Things", id: 904280696
-mas "Todoist", id: 585829637
-mas "Trello", id: 1278508951
-mas "Twitter", id: 1482454543
 mas "Xcode", id: 497799835
