@@ -1,0 +1,70 @@
+[user]
+    name = Drew Hays
+    email = drewshays@gmail.com
+[push]
+    default = simple
+[pull]
+    rebase = preserve
+[merge]
+    ff = false
+[alias]
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all --date=local
+    ls = ls-files
+    unstage = reset HEAD
+    dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)\"%an\" <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(auto)%d%C(reset)%n%s' --date-order
+    update = add -u
+    odiff = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short
+    list-changes = log --branches  --not --remotes --simplify-by-decoration --decorate --oneline
+    cdiff = log --left-right --graph --cherry-pick --oneline
+    stashdiff = stash show -p
+    ws = rebase --whitespace=fix
+    diff-upstream = diff @{upstream}
+    unmerged = log --no-merges
+    merge-squash = merge --ff --squash
+    explore = clone --depth=1
+    message = log --format='%B' -1
+[color]
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
+    ui = auto
+[core]
+    pager = delta
+    excludesfile = ~/.gitignore_global
+[delta]
+    plus-color = "#012800"
+    minus-color = "#340001"
+    syntax-theme = Monokai Extended
+    line-numbers = true
+    side-by-side = false
+[diff]
+    algorithm = patience
+    tool = vimdiff
+    colorMoved = default
+[url "git://github.com/"]
+    insteadOf = "gh:"
+[url "git@github.com:"]
+    pushInsteadOf = "git://github.com"
+[filter "media"]
+    required = true
+    clean = git media clean %f
+    smudge = git media smudge %f
+[difftool]
+    prompt = false
+[mergetool]
+    prompt = false
+    keepBackup = false
+[filter "lfs"]
+    clean = git-lfs clean %f
+    smudge = git-lfs smudge %f
+    required = true
+[mergetool "vimdiff"]
+    cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[help]
+	autocorrect = 0
+[include]
+    path = ~/.local_gitconfig
+[interactive]
+    diffFilter = delta --color-only

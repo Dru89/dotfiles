@@ -1,0 +1,62 @@
+# Replace the "❯" symbol in the prompt with "$"
+[character]
+success_symbol = "[\\$](bold green)"
+error_symbol = "[\\$](bold red)"
+
+[aws]
+disabled = true
+
+[gcloud]
+disabled = true
+
+# "bold red" style when capacity is between 0% and 10%
+[[battery.display]] 
+threshold = 10
+style = "bold red"
+
+# "bold yellow" style when capacity is between 10% and 30%
+[[battery.display]]
+threshold = 30
+style = "bold yellow"
+
+[dotnet]
+disabled = true
+
+[directory]
+fish_style_pwd_dir_length = 1
+truncate_to_repo = false
+
+[git_branch]
+symbol = "branch "
+
+[git_status]
+disabled = true
+
+[java]
+disabled = true
+
+[nodejs]
+symbol = "node "
+
+[package]
+disabled = true
+
+[python]
+symbol = "python "
+
+[ruby]
+symbol = "ruby "
+
+[rust]
+symbol = "rust "
+
+[terraform]
+symbol = "tf "
+
+[time]
+disabled = false
+use_12hr = true
+style = "#ffffff"
+
+[username]
+show_always = true

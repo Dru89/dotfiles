@@ -1,0 +1,5 @@
+# Set variables
+set vertical-split = no
+
+# Tig bindings
+bind main C !git checkout %(commit)
