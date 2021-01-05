@@ -29,9 +29,6 @@ truncate_to_repo = false
 [git_branch]
 symbol = "branch "
 
-[git_status]
-disabled = true
-
 [java]
 disabled = true
 
