@@ -34,9 +34,9 @@
     pager = delta
     excludesfile = ~/.gitignore_global
 [delta]
-    plus-color = "#012800"
-    minus-color = "#340001"
-    syntax-theme = Monokai Extended
+    # plus-color = "#012800"
+    # minus-color = "#340001"
+    syntax-theme = DarkNeon
     line-numbers = true
     side-by-side = false
 [diff]

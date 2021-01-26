@@ -25,7 +25,6 @@ export HISTFILE=~/.zhistory
 test -f $ZSH/oh-my-zsh.sh && source $ZSH/oh-my-zsh.sh
 test -f ~/.keybindings && source ~/.keybindings
 test -f ~/.noglob && source ~/.noglob
-test -f ~/.antigen.zsh && source ~/.antigen.zsh
 test -f ~/.shellrc && source ~/.shellrc
 test -f ~/.fzf.zsh && source ~/.fzf.zsh
 command -v rbenv > /dev/null && eval "$(rbenv init - zsh)"

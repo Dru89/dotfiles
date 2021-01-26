@@ -182,6 +182,38 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
+# Colors (Hyper)
+colors_hyper: &colors_hyper
+  # Default colors
+  primary:
+    background: '0x000000'
+    foreground: '0xffffff'
+  cursor:
+    text: '0xF81CE5'
+    cursor: '0xffffff'
+
+  # Normal colors
+  normal:
+    black:   '0x000000'
+    red:     '0xfe0100'
+    green:   '0x33ff00'
+    yellow:  '0xfeff00'
+    blue:    '0x0066ff'
+    magenta: '0xcc00ff'
+    cyan:    '0x00ffff'
+    white:   '0xd0d0d0'
+
+  # Bright colors
+  bright:
+    black:   '0x808080'
+    red:     '0xfe0100'
+    green:   '0x33ff00'
+    yellow:  '0xfeff00'
+    blue:    '0x0066ff'
+    magenta: '0xcc00ff'
+    cyan:    '0x00ffff'
+    white:   '0xFFFFFF'
+
 # Colors (One Half Dark: https://github.com/sonph/onehalf/tree/master/alacritty)
 onehalf_dark: &dark
   primary:
@@ -684,6 +716,8 @@ colors: *dark
 # a no-op if you do not wish to receive input characters for that binding.
 key_bindings:
   - { key: N,        mods: Command,         action: SpawnNewInstance }
+  - { key: Left,     mods: Alt, chars: "\x1bb"                       }
+  - { key: Right,    mods: Alt, chars: "\x1bf"                       }
   #- { key: K,        mods: Command,         action: ClearHistory     }
 
   # (Windows/Linux only)

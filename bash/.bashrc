@@ -87,6 +87,13 @@ if [ -f ~/.bash_aliases ]; then
     source ~/.bash_aliases
 fi
 
+if [ -x /usr/local/bin/virtualenvwrapper.sh ]; then
+  VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+  export WORKON_HOME=$HOME/.virtualenvs
+  export PROJECT_HOME=$HOME/workspace
+  source /usr/local/bin/virtualenvwrapper.sh
+fi
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -97,7 +104,10 @@ export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 export CDPATH="${HOME}/workspace/"
 
 # conditional scripts
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+if [ -f ~/.fzf.bash ]; then
+    export FZF_DEFAULT_COMMAND='find -L .'
+    source ~/.fzf.bash
+fi
 [ -f ~/.shellrc ] && source ~/.shellrc
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && source "/usr/local/etc/profile.d/bash_completion.sh"
 [[ -r ~/.bash_completion/alacritty ]] && source ~/.bash_completion/alacritty
