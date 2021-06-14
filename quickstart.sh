@@ -7,6 +7,7 @@ stow --target $HOME git
 stow --target $HOME homebrew
 stow --target $HOME hyper
 stow --target $HOME neovim
+stow --target $HOME ripgrep
 stow --target $HOME shell
 stow --target $HOME starship
 stow --target $HOME tmux

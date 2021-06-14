@@ -218,7 +218,6 @@ colors_night_owl: &colors_night_owl
     cyan:    '#7fdbca'
     white:   '#ffffff'
 
-
 # Colors (Hyper)
 colors_hyper: &colors_hyper
   # Default colors
@@ -312,7 +311,6 @@ papercolor_light: &light
     white:   '0x005f87'
 
 colors: *colors_night_owl
-
 
 # Colors (One Dark)
 # colors:

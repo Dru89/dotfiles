@@ -1,18 +1,10 @@
-function! FZFGit()
-    let me = expand('%:p:h')
-    let gitd = finddir('.git', me.';')
-    if empty(gitd)
-        FZF
-    else
-        let gitp = fnamemodify(gitd, ':h')
-        call fzf#run({
-            \ 'source': 'git ls-files . --cached --exclude-standard --others',
-            \ 'sink': 'e',
-            \ 'up': 13,
-            \ 'dir': gitp,
-            \ 'options': '-m'
-            \ })
-    endif
-endfunction
-command! FZFGit call FZFGit()
-nnoremap <silent> <leader><leader> :FZFGit<cr>
+nnoremap <silent> <leader><leader> :GFiles<cr>
+
+nnoremap <silent> <leader>t :Files<CR>
+
+" Additional map for buffer searching
+nnoremap <silent> <leader>b :Buffers<CR>
+
+" Cmd-Shift-(M)ethod - jump to tag in file
+nnoremap <silent> <D-M> :BTags<CR>
+

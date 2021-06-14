@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
-alias randstr="cat /dev/urandom | env LC_CTYPE=C tr -cd 'A-Za-z0-9' | head -c"
-alias randhex="cat /dev/urandom | env LC_CTYPE=C tr -cd 'a-f0-9' | head -c"
+alias randstr="cat /dev/urandom | env LC_ALL=C tr -cd 'A-Za-z0-9' | head -c"
+alias randhex="cat /dev/urandom | env LC_ALL=C tr -cd 'a-f0-9' | head -c"
 alias tiga='tig --all'
 alias arc='OVERCOMMIT_DISABLE=1 arc'
 alias q='ag -Q'
@@ -36,7 +36,15 @@ ruby -run -e httpd $dir -p $port
 
 function jql() {
 arg="${1:-.}"
-jq -C "$arg" | less
+jq -C "$arg" | less -r
+}
+
+function showcert() {
+domain="${1}"
+if [[ "${domain}" != *":"* ]]; then
+  domain="${domain}:443"
+fi
+openssl s_client -connect "${domain}" </dev/null 2>/dev/null | openssl x509 -noout -text
 }
 
 ###################################################################
