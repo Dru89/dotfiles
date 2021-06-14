@@ -109,7 +109,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux) monospace
     #   - (Windows) Consolas
-    family: "JetBrains Mono"
+    family: "JetBrainsMono NF"
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -181,6 +181,43 @@ font:
 
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
+
+# Colors (Night Owl)
+colors_night_owl: &colors_night_owl
+   # Default colors
+  primary:
+    background: '#011627'
+    foreground: '#d6deeb'
+
+  cursor:
+    text: '#011627'
+    cursor: '#d6deeb'
+
+  selection:
+    background: '#1b90dd'
+
+   # Normal colors
+  normal:
+    black:   '#011627'
+    red:     '#ef5350'
+    green:   '#22da6e'
+    yellow:  '#c5e478'
+    blue:    '#82aaff'
+    magenta: '#c792ea'
+    cyan:    '#21c7a8'
+    white:   '#ffffff'
+
+   # Bright colors
+  bright:
+    black:   '#8d8d8d'
+    red:     '#ef5350'
+    green:   '#22da6e'
+    yellow:  '#ffeb95'
+    blue:    '#82aaff'
+    magenta: '#c792ea'
+    cyan:    '#7fdbca'
+    white:   '#ffffff'
+
 
 # Colors (Hyper)
 colors_hyper: &colors_hyper
@@ -274,7 +311,7 @@ papercolor_light: &light
     cyan:    '0x005faf'
     white:   '0x005f87'
 
-colors: *dark
+colors: *colors_night_owl
 
 
 # Colors (One Dark)

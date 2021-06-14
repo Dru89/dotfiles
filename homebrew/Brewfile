@@ -8,24 +8,20 @@ tap "neovim/neovim"
 tap "rs/tap"
 brew "bash"
 brew "bdw-gc"
-brew "freetype"
-brew "gettext"
-brew "readline"
-brew "xz"
 brew "sqlite"
 brew "python@3.9"
 brew "glib"
+brew "carthage"
 brew "coreutils"
+brew "nghttp2"
 brew "curl"
-brew "pkg-config"
 brew "guile"
-brew "libevent"
 brew "unbound"
 brew "gnutls"
+brew "gobject-introspection"
 brew "harfbuzz"
 brew "ffmpeg"
 brew "fzf"
-brew "gd"
 brew "gh"
 brew "gist"
 brew "git"
@@ -34,18 +30,19 @@ brew "git-extras"
 brew "gnu-getopt"
 brew "gnu-sed"
 brew "netpbm"
+brew "python@3.8"
 brew "pango"
 brew "graphviz"
 brew "helm"
 brew "httpie"
 brew "hub"
+brew "libheif"
 brew "imagemagick"
+brew "imagemagick@6"
 brew "irssi"
 brew "jq"
 brew "libiconv"
 brew "unibilium"
-brew "libtermkey"
-brew "libvterm"
 brew "libxml2"
 brew "lua"
 brew "lzip"
@@ -55,23 +52,26 @@ brew "msgpack"
 brew "mysql"
 brew "neovim"
 brew "netcat"
+brew "nginx"
 brew "nmap"
-brew "node"
+brew "node", link: false
 brew "pandoc"
 brew "pdsh"
 brew "pigz"
 brew "poppler"
 brew "pstree"
-brew "ruby-build"
-brew "rbenv"
 brew "reattach-to-user-namespace"
 brew "redis"
+brew "remarshal"
 brew "ripgrep"
 brew "rsync"
 brew "ruby"
 brew "starship"
 brew "stow"
 brew "swiftlint"
+brew "task"
+brew "taskd"
+brew "tasksh"
 brew "telnet"
 brew "the_silver_searcher"
 brew "tidy-html5"
@@ -79,30 +79,34 @@ brew "tig"
 brew "tmux"
 brew "tree"
 brew "v8"
+brew "vegeta"
 brew "watch"
+brew "watchman"
 brew "wget"
+brew "youtube-dl"
 brew "yq"
 brew "zlib"
 brew "zsh"
-brew "rs/tap/dnstrace"
 cask "alacritty"
-mas "Affinity Designer", id: 824171161
-mas "Affinity Photo", id: 824183456
+cask "microsoft-auto-update"
+cask "microsoft-edge-dev"
 mas "Bear", id: 1091189122
 mas "Cardhop", id: 1290358394
+mas "CARROT Weather", id: 993487541
 mas "Craft", id: 1487937127
 mas "Day One", id: 1055511498
-mas "Deliveries", id: 924726344
-mas "Developer", id: 640199958
+mas "Deliveries", id: 290986013
 mas "Drafts", id: 1435957248
-mas "Evernote Web Clipper", id: 1481669779
 mas "Fantastical", id: 975937182
-mas "Instapaper Save", id: 1481302432
-mas "JSONPeep", id: 1458969831
+mas "GarageBand", id: 682658836
+mas "GoodLinks", id: 1474335294
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
 mas "Moom", id: 419330170
+mas "Numbers", id: 409203825
+mas "OmniFocus", id: 1346203938
+mas "Pages", id: 409201541
 mas "Pastebot", id: 1179623856
-mas "Raindrop.io for Safari", id: 957810159
 mas "Reeder", id: 1529448980
-mas "Ring", id: 1142753258
 mas "Things", id: 904280696
 mas "Xcode", id: 497799835
