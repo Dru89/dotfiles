@@ -5,6 +5,7 @@ stow --target $HOME bash
 stow --target $HOME curl
 stow --target $HOME git
 stow --target $HOME homebrew
+stow --target $HOME hyper
 stow --target $HOME neovim
 stow --target $HOME shell
 stow --target $HOME starship
