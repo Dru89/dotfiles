@@ -1,6 +1,15 @@
 [user]
     name = Drew Hays
     email = drewshays@gmail.com
+[push]
+    default = simple
+    autoSetupRemote = true
+[pull]
+	rebase = true
+[init]
+	defaultBranch = main
+[merge]
+    ff = false
 [alias]
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all --date=local
@@ -41,6 +50,14 @@
     insteadOf = "gh:"
 [url "git@github.com:"]
     pushInsteadOf = "git://github.com"
+
+[url "git@github.twdcgrid.net:"]
+    insteadOf = https://github.twdcgrid.net/
+[url "git@github.prod.hulu.com:"]
+    insteadOf = https://github.prod.hulu.com/
+[url "git@github.bamtech.co:"]
+    insteadOf = https://github.bamtech.co/
+
 [filter "media"]
     required = true
     clean = git media clean %f
@@ -62,7 +79,3 @@
     path = ~/.local_gitconfig
 [interactive]
     diffFilter = delta --color-only
-[init]
-	defaultBranch = main
-[push]
-	autoSetupRemote = true

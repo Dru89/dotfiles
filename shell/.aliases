@@ -46,6 +46,68 @@ fi
 openssl s_client -connect "${domain}" </dev/null 2>/dev/null | openssl x509 -noout -text
 }
 
+# Add this to your .bashrc or .zshrc file
+clone() {
+    # Check if a URL was provided
+    if [ $# -lt 1 ]; then
+        echo "Usage: clone <git-repository-url>"
+        return 1
+    fi
+
+    # Get the repository URL
+    REPO_URL="$1"
+
+    # Base directory for repositories
+    BASE_DIR=~/Developer
+
+    # Function to extract the target directory from the URL
+    get_target_dir() {
+        local url="$1"
+        local target_dir
+
+        # Remove .git extension if present
+        url=${url%.git}
+
+        # Handle SSH URLs (git@github.com:org/repo)
+        if [[ $url == git@* ]]; then
+            # Convert git@github.com:org/repo to github.com/org/repo
+            local domain=$(echo $url | cut -d '@' -f2 | cut -d ':' -f1)
+            local path=$(echo $url | cut -d ':' -f2)
+            target_dir="$BASE_DIR/$domain/$(dirname $path)/$(basename $path)"
+        else
+            # Handle HTTPS URLs (https://github.com/org/repo)
+            # Remove protocol prefix
+            local url_without_protocol=${url#*://}
+            target_dir="$BASE_DIR/$url_without_protocol"
+        fi
+
+        echo "$target_dir"
+    }
+
+    # Get the target directory
+    TARGET_DIR=$(get_target_dir "$REPO_URL")
+    REPO_NAME=$(basename "$TARGET_DIR")
+    PARENT_DIR=$(dirname "$TARGET_DIR")
+
+    echo "Cloning $REPO_URL to $TARGET_DIR"
+
+    # Create parent directory if it doesn't exist
+    mkdir -p "$PARENT_DIR"
+
+    # Clone the repository
+    git clone "$REPO_URL" "$TARGET_DIR"
+
+    # Check if the clone was successful
+    if [ $? -eq 0 ]; then
+        echo "Clone successful!"
+        # Change to the repository directory
+        cd "$TARGET_DIR"
+    else
+        echo "Clone failed!"
+        return 1
+    fi
+}
+
 ###################################################################
 #                         SSH-AGENT STUFF                         #
 # (found and slightly adapted from http://superuser.com/a/141241) #

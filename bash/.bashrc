@@ -2,6 +2,8 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+export PATH=$HOME/bin:/opt/homebrew/bin/:$PATH
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -101,14 +103,14 @@ export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 [ -f $(brew --prefix)/etc/profile.d/bash_completion.sh ] && source $(brew --prefix)/etc/profile.d/bash_completion.sh
 
 
-# let me cd to things in ~/workspace/ *magically*
-export CDPATH="${HOME}/workspace/"
 
 # conditional scripts
 if [ -f ~/.fzf.bash ]; then
     export FZF_DEFAULT_COMMAND='find -L .'
     source ~/.fzf.bash
 fi
+
+eval "$(fzf --bash)"
 
 if [ -f ~/.config/ripgrep/.rgrc ]; then
     export RIPGREP_CONFIG_PATH=~/.config/ripgrep/.rgrc
@@ -121,8 +123,11 @@ command -v rbenv > /dev/null && eval "$(rbenv init - bash)"
 
 eval "$(starship init bash)"
 
+export PATH="/usr/local/sbin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export JAVA_HOME=$(/usr/libexec/java_home)
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-export PATH="/usr/local/sbin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
+
