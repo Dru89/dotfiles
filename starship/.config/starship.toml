@@ -14,55 +14,7 @@ add_newline = true
 
 [directory]
 truncation_length = 3
-truncate_to_repo = false
 fish_style_pwd_dir_length = 1
-style = "bold blue"
-
-# ------------------------------------------------------------------
-# Git — aggressively optimized for bash
-# ------------------------------------------------------------------
-
-[git_branch]
-symbol = ""
-style = "bold purple"
-only_attached = true
-format = " [$branch]($style)"
-
-[git_status]
-# Keep *very* lightweight indicators only
-format = " [$all_status$ahead_behind]($style)"
-style = "bold yellow"
-
-# Disable expensive checks
-conflicted = ""
-stashed = ""
-untracked = ""
-modified = "!"
-staged = "+"
-renamed = ""
-deleted = ""
-
-# These are surprisingly expensive in large repos
-ignore_submodules = true
-
-# ------------------------------------------------------------------
-# Language/toolchain modules (only show when relevant)
-# ------------------------------------------------------------------
-
-[nodejs]
-format = " [node $version]($style)"
-detect_files = ["package.json"]
-detect_extensions = []
-
-[python]
-format = " [py $version]($style)"
-detect_extensions = []
-detect_files = ["pyproject.toml", "requirements.txt"]
-
-[rust]
-format = " [rust $version]($style)"
-detect_extensions = []
-detect_files = ["Cargo.toml"]
 
 [aws]
 disabled = true
@@ -80,25 +32,7 @@ style = "bold red"
 threshold = 30
 style = "bold yellow"
 
-[dotnet]
-disabled = true
-
-[java]
-disabled = true
-
-[package]
-disabled = true
-
-[ruby]
-symbol = "ruby "
-
-[terraform]
-symbol = "tf "
-
 [time]
 disabled = false
 use_12hr = true
 style = "#ffffff"
-
-[username]
-show_always = true
