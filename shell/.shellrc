@@ -1,9 +1,6 @@
 #!/usr/bin/env sh
 # PATH setup
 
-# Add yarn and yarn-installed binaries to PATH
-PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
 # ensure --user-install'd gems are in PATH
 if which ruby >/dev/null && which gem >/dev/null; then
     PATH="$PATH:$(ruby -r rubygems -e 'puts Gem.user_dir')/bin"
@@ -11,10 +8,11 @@ fi
 
 PATH="$PATH:$HOME/Library/Python/3.8/bin"
 PATH="$PATH:$HOME/Library/Python/2.7/bin"
+PATH="/usr/local/sbin:$PATH"
 
 # add Android SDK
-asdk="$HOME/Library/Android/sdk"
-PATH="$asdk/tools/bin:$asdk/platform-tools:$asdk/tools:$PATH"
+# asdk="$HOME/Library/Android/sdk"
+# PATH="$asdk/tools/bin:$asdk/platform-tools:$asdk/tools:$PATH"
 
 # add cargo/rust/rustup
 PATH="$HOME/.cargo/bin:$PATH"

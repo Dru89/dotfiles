@@ -116,13 +116,12 @@ fi
 
 [ -f ~/.shellrc ] && source ~/.shellrc
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && source "/usr/local/etc/profile.d/bash_completion.sh"
-[[ -r ~/.bash_completion/alacritty ]] && source ~/.bash_completion/alacritty
-[[ -r "/Applications/Alacritty.app/Contents/Resources/completions/alacritty.bash" ]] && source "/Applications/Alacritty.app/Contents/Resources/completions/alacritty.bash"
 
 command -v rbenv > /dev/null && eval "$(rbenv init - bash)"
 
-export PATH
 eval "$(starship init bash)"
 
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH="/usr/local/sbin:$PATH"

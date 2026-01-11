@@ -11,7 +11,6 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias sudo="sudo "
 alias workoff="deactivate" # opposite of virtualenv's "workon <env>"
-alias code="code-insiders"
 
 command -v hub > /dev/null && eval "$(hub alias -s)"
 

@@ -1,12 +1,6 @@
 [user]
     name = Drew Hays
     email = drewshays@gmail.com
-[push]
-    default = simple
-[pull]
-    rebase = preserve
-[merge]
-    ff = false
 [alias]
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all --date=local
@@ -68,3 +62,7 @@
     path = ~/.local_gitconfig
 [interactive]
     diffFilter = delta --color-only
+[init]
+	defaultBranch = main
+[push]
+	autoSetupRemote = true
