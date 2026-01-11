@@ -7,94 +7,49 @@ return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     event = { "BufReadPost", "BufNewFile" },
-    priority = 50, -- Load before other treesitter plugins
+    lazy = false,
     config = function()
-      require("nvim-treesitter.config").setup({
-        -- Install parsers for these languages
-        ensure_installed = {
-          "bash",
-          "c",
-          "css",
-          "go",
-          "html",
-          "javascript",
-          "jsdoc",
-          "json",
-          "lua",
-          "markdown",
-          "markdown_inline",
-          "python",
-          "regex",
-          "ruby",
-          "rust",
-          "scss",
-          "toml",
-          "tsx",
-          "typescript",
-          "vim",
-          "vimdoc",
-          "yaml",
-        },
+      local treesitter = require('nvim-treesitter')
+      treesitter.setup({})
 
-        -- Install parsers synchronously (only applied to `ensure_installed`)
-        sync_install = false,
+      local should_install = {
+        "bash",
+        "c",
+        "css",
+        "go",
+        "html",
+        "javascript",
+        "jsdoc",
+        "json",
+        "lua",
+        "markdown",
+        "markdown_inline",
+        "python",
+        "regex",
+        "ruby",
+        "rust",
+        "scss",
+        "toml",
+        "tsx",
+        "typescript",
+        "vim",
+        "vimdoc",
+        "yaml",
+      }
 
-        -- Automatically install missing parsers when entering buffer
-        auto_install = true,
+      treesitter.install(table.except(should_install, treesitter.get_installed()))
 
-        highlight = {
-          enable = true,
-          additional_vim_regex_highlighting = false,
-        },
-
-        indent = {
-          enable = true,
-        },
-
-        incremental_selection = {
-          enable = true,
-          keymaps = {
-            init_selection = "<C-space>",
-            node_incremental = "<C-space>",
-            scope_incremental = false,
-            node_decremental = "<bs>",
-          },
-        },
-
-        textobjects = {
-          select = {
-            enable = true,
-            lookahead = true,
-            keymaps = {
-              ["af"] = "@function.outer",
-              ["if"] = "@function.inner",
-              ["ac"] = "@class.outer",
-              ["ic"] = "@class.inner",
-              ["aa"] = "@parameter.outer",
-              ["ia"] = "@parameter.inner",
-            },
-          },
-          move = {
-            enable = true,
-            set_jumps = true,
-            goto_next_start = {
-              ["]f"] = "@function.outer",
-              ["]c"] = "@class.outer",
-            },
-            goto_next_end = {
-              ["]F"] = "@function.outer",
-              ["]C"] = "@class.outer",
-            },
-            goto_previous_start = {
-              ["[f"] = "@function.outer",
-              ["[c"] = "@class.outer",
-            },
-            goto_previous_end = {
-              ["[F"] = "@function.outer",
-              ["[C"] = "@class.outer",
-            },
-          },
-        },
+      vim.api.nvim_create_autocmd('FileType', {
+        callback = function(args)
+          if
+            vim.list_contains(
+              treesitter.get_installed(),
+              vim.treesitter.language.get_lang(args.match)
+            )
+          then
+            vim.treesitter.start(args.buf)
+          end
+        end
       })
     end,
   },
@@ -107,7 +62,7 @@ return {
     event = { "BufReadPost", "BufNewFile" },
   },
 
-  -- Show code context (replaces tagbar functionality)
+  -- -- Show code context (replaces tagbar functionality)
   {
     "nvim-treesitter/nvim-treesitter-context",
     dependencies = { "nvim-treesitter/nvim-treesitter" },

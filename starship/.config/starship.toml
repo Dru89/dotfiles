@@ -1,7 +1,68 @@
-# Replace the "❯" symbol in the prompt with "$"
-[character]
-success_symbol = "[\\$](bold green)"
-error_symbol = "[\\$](bold red)"
+# ------------------------------------------------------------------
+# Global behavior
+# ------------------------------------------------------------------
+
+# Bash blocks on slow commands — fail fast instead of hanging
+command_timeout = 300
+
+# Keep prompt compact and readable
+add_newline = true
+
+# ------------------------------------------------------------------
+# Directory (kept, lightly tuned)
+# ------------------------------------------------------------------
+
+[directory]
+truncation_length = 3
+truncate_to_repo = false
+fish_style_pwd_dir_length = 1
+style = "bold blue"
+
+# ------------------------------------------------------------------
+# Git — aggressively optimized for bash
+# ------------------------------------------------------------------
+
+[git_branch]
+symbol = ""
+style = "bold purple"
+only_attached = true
+format = " [$branch]($style)"
+
+[git_status]
+# Keep *very* lightweight indicators only
+format = " [$all_status$ahead_behind]($style)"
+style = "bold yellow"
+
+# Disable expensive checks
+conflicted = ""
+stashed = ""
+untracked = ""
+modified = "!"
+staged = "+"
+renamed = ""
+deleted = ""
+
+# These are surprisingly expensive in large repos
+ignore_submodules = true
+
+# ------------------------------------------------------------------
+# Language/toolchain modules (only show when relevant)
+# ------------------------------------------------------------------
+
+[nodejs]
+format = " [node $version]($style)"
+detect_files = ["package.json"]
+detect_extensions = []
+
+[python]
+format = " [py $version]($style)"
+detect_extensions = []
+detect_files = ["pyproject.toml", "requirements.txt"]
+
+[rust]
+format = " [rust $version]($style)"
+detect_extensions = []
+detect_files = ["Cargo.toml"]
 
 [aws]
 disabled = true
@@ -10,7 +71,7 @@ disabled = true
 disabled = true
 
 # "bold red" style when capacity is between 0% and 10%
-[[battery.display]] 
+[[battery.display]]
 threshold = 10
 style = "bold red"
 
@@ -22,30 +83,14 @@ style = "bold yellow"
 [dotnet]
 disabled = true
 
-[directory]
-fish_style_pwd_dir_length = 1
-truncate_to_repo = false
-
-[git_branch]
-symbol = "branch "
-
 [java]
 disabled = true
-
-[nodejs]
-symbol = "node "
 
 [package]
 disabled = true
 
-[python]
-symbol = "python "
-
 [ruby]
 symbol = "ruby "
-
-[rust]
-symbol = "rust "
 
 [terraform]
 symbol = "tf "

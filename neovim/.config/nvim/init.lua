@@ -1,3 +1,5 @@
+require("utils.extension")
+
 -- ==================== MODERN NEOVIM CONFIG ====================
 -- Modernized from legacy vim config to Lua-based configuration
 -- Using lazy.nvim for plugin management
