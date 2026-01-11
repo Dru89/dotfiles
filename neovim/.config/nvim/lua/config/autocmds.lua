@@ -1,6 +1,6 @@
 -- ==================== AUTOCOMMANDS ====================
 -- Automatic commands for various file types and events
-
+ 
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
@@ -42,7 +42,7 @@ autocmd("VimResized", {
 })
 
 -- File Type Specific Settings
-local filetype = augroup("FileType", { clear = true })
+local filetype = augroup("FileTypeSettings", { clear = true })
 
 -- Git commit messages
 autocmd("FileType", {
