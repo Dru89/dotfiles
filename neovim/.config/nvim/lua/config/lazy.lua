@@ -14,7 +14,7 @@ require("lazy").setup({
   },
 
   -- Installation options
-  install = { colorscheme = { "molokai", "habamax" } },
+  install = { colorscheme = { "catppuccin", "habamax" } },
 
   -- Checker options (automatically check for updates)
   checker = {
